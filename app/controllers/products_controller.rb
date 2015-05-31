@@ -1,4 +1,5 @@
 class ProductsController < ApplicationController
+
 	before_action :find_product, only: [:show, :edit, :update,:destroy]
 	before_action :authenticate_user!, except: [:index, :show]
 
@@ -11,11 +12,10 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		byebug
 		@product = current_user.products.build(product_params)
 
 		if @product.save
-			redirect_to @product, notice: "Creado con exito!"
+			redirect_to @product, notice: "Subasta creada!"
 		else
 			render 'new'
 		end

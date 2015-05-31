@@ -16,7 +16,6 @@ ActiveRecord::Schema.define(version: 20150531034406) do
   create_table "products", force: :cascade do |t|
     t.string   "name"
     t.text     "description"
-    t.date     "due_date"
     t.string   "state"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -25,6 +24,7 @@ ActiveRecord::Schema.define(version: 20150531034406) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
+    t.date     "due_date"
   end
 
   add_index "products", ["user_id"], name: "index_products_on_user_id"
