@@ -6,6 +6,7 @@ class CreateProducts < ActiveRecord::Migration
       t.date :due_date
       t.string :state
 
+
       t.timestamps null: false
     end
   end
