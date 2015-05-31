@@ -14,7 +14,7 @@ class Product < ActiveRecord::Base
 	validates_inclusion_of :state, :in => STATES, :message => "{{value}} must be in #{STATES.join ','}"
 
 	def set_due_date
-		self.due_date = due_date_for(self.period)
+		self.due_date ||= due_date_for(self.period)
 	end
 
 	def init
