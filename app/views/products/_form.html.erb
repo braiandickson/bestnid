@@ -1,4 +1,5 @@
 <%= simple_form_for @product do |f| %>
+	<%= f.input :image, as: :file %>
 	<%= f.input :name, label: 'Ingrese el nombre del producto a subastar' %>
 	<%= f.input :description, label: 'Ingrese la descripción del producto' %>
 	<%= f.input :due_date, label: 'Tiempo de subasta:', prompt: '15', collection: 16..30, select: 15 %>

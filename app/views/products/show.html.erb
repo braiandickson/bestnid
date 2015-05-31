@@ -1,6 +1,6 @@
-<h1><%= @product.name %></h1>
-<p><%= @product.description %></p>
-<p>Submitted by <%= @product.user.email %></p>
+<h1>Producto subastado: <%= @product.name %></h1>
+<%= image_tag @product.image.url(:medium) %>
+<p> Descripción: <%= @product.description %></p>
 
 <%= link_to "Volver", root_path, target: "_parent" %>
 <%= link_to "Editar", edit_product_path %>
