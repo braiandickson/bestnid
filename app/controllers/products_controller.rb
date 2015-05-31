@@ -27,7 +27,7 @@ class ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.requiere(:product).permit(:name, :description, :due_date, :state)
+		params.require(:product).permit(:name, :description, :state, :due_date, :image)
 	end
 
 	def find_product
