@@ -1,0 +1,10 @@
+<div class="transitions-enabled" id="products">
+<%= link_to 'New', new_product_path %>
+  <% @products.each do |product| %>
+    <div class="box panel panel-default">
+      <h2>
+      	<%= link_to product.name, product %>
+      </h2>
+    </div>
+  <% end %>
+</div>
