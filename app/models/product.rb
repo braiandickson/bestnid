@@ -1,10 +1,15 @@
 class Product < ActiveRecord::Base
 	after_initialize :init
+	before_save :set_due_date
 	belongs_to :user
  
   	validates :name, presence: true, uniqueness: true
   	validates :content, presence: true
 
+
+	include ProductsHelper
+
+	attr_reader :period
 
 	STATES = ['active', 'blocked', 'finished']
 
@@ -12,8 +17,8 @@ class Product < ActiveRecord::Base
 	validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
 	validates_inclusion_of :state, :in => STATES, :message => "{{value}} must be in #{STATES.join ','}"
 
-	def due_date_for(validity_period)
-		validity_period.days.from_now
+	def set_due_date
+		self.due_date ||= due_date_for(self.period)
 	end
 
 	def init
@@ -23,5 +28,9 @@ class Product < ActiveRecord::Base
 	def self.search(search)
    		where("name like ?", "%#{search}%") 
   	end
+
+	def period=(value)
+		@period = value.to_i
+	end
 
 end
