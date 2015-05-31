@@ -1,6 +1,10 @@
 class Product < ActiveRecord::Base
 	after_initialize :init
 	belongs_to :user
+ 
+  	validates :name, presence: true, uniqueness: true
+  	validates :content, presence: true
+
 
 	STATES = ['active', 'blocked', 'finished']
 
@@ -15,5 +19,9 @@ class Product < ActiveRecord::Base
 	def init
 		self.state = 'active'
 	end
+
+	def self.search(search)
+   		where("name like ?", "%#{search}%") 
+  	end
 
 end

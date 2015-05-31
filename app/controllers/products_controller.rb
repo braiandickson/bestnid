@@ -3,7 +3,7 @@ class ProductsController < ApplicationController
 	before_action :authenticate_user!, except: [:index, :show]
 
 	def index
-		@products = Product.all.order("created_at DESC")
+		@products = Product.order("created_at DESC")
 	end
 
 	def new
@@ -11,7 +11,6 @@ class ProductsController < ApplicationController
 	end
 
 	def create
-		byebug
 		@product = current_user.products.build(product_params)
 
 		if @product.save
