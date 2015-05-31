@@ -1,4 +1,6 @@
-<h1>Hola! <% @product.name%></h1>
-<p> Descripción: <% @product.description %></p>
+<h1><%= @product.name %></h1>
+<p><%= @product.description %></p>
+<p>Submitted by <%= @product.user.email %></p>
 
-<%= link_to 'Back', root_path %>
+<%= link_to "Volver", root_path, target: "_parent" %>
+<%= link_to "Editar", edit_product_path %>
