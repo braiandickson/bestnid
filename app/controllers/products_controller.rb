@@ -11,6 +11,7 @@ class ProductsController < ApplicationController
 	end
 
 	def create
+		byebug
 		@product = current_user.products.build(product_params)
 
 		if @product.save
@@ -42,7 +43,7 @@ class ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:name, :description, :state, :due_date, :image)
+		params.require(:product).permit(:name, :description, :state, :period, :image)
 	end
 
 	def find_product

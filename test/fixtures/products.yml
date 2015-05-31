@@ -3,11 +3,11 @@
 one:
   name: MyString
   description: MyText
-  due_date: 2015-05-30
+  period: 15
   state: MyString
 
 two:
   name: MyString
   description: MyText
-  due_date: 2015-05-30
+  period: 15
   state: MyString
