@@ -3,8 +3,14 @@ class ProductsController < ApplicationController
 	before_action :find_product, only: [:show, :edit, :update,:destroy]
 	before_action :authenticate_user!, except: [:index, :show]
 
+
 	def index
-		@products = Product.order("created_at DESC")
+	  @products = Product.all
+	  if params[:search]
+	    @products = Product.search(params[:search]).order("created_at DESC")
+	  else
+	    @products = Product.order("created_at DESC")
+	  end
 	end
 
 	def new
