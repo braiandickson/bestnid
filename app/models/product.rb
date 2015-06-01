@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 	belongs_to :user
  
   	validates :name, presence: true, uniqueness: true
-  	validates :content, presence: true
+  	#validates :content, presence: true
 
 
 	include ProductsHelper
