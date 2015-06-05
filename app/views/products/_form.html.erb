@@ -1,12 +1,4 @@
 <%= simple_form_for @product, html: { multipart: true } do |f| %>
-  <% if @product.errors.any? %>
-    <div id="errors">
-      <h2>
-        <%= pluralize(@product.errors.count, "error") %>
-        causa que el producto no pueda darse de alta.
-      </h2>
-    </div>
-  <% end %>
   <div class="form-group">
     <%= f.input :image, label: 'Imagen:', requiered: true, input_html: { class: 'form-control' } %>
   </div>

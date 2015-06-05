@@ -7,6 +7,7 @@
 	      	<%= link_to product.name, product %>
 	      </h2>
 	      <p>Subastado por <%= product.user.name %></p>
+	      <p>Fecha de finalización: <%= product.due_date.strftime("%d %b %Y") %></p>
 	    </div>
 	  <% end %>
 	</div>

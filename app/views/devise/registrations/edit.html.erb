@@ -1,28 +1,36 @@
-<h2>Editar Cuenta</h2>
+<div class="col-md-6 col-md-offset-3">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h2>Editar Cuenta</h2>
+      </div>
+        <div class="panel-body">
+          <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <%= f.error_notification %>
 
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
+            <div class="form-inputs">
+              <%= f.input :name, label: "Nombre:", placeholder: "Escriba su mail o apodo...", requiered: true, autofocus: true %>
+              <%= f.input :email, label: "Correo electronico:", required: true %>
+              <%= f.input :card, label: "Tarjeta de credito:", placeholder: "Ej: 4563-3459-9564-1368" %>
 
-  <div class="form-inputs">
-    <%= f.input :name, label: "Nombre:", placeholder: "Escriba su mail o apodo...", requiered: true, autofocus: true %>
-    <%= f.input :email, label: "Correo electronico:", required: true %>
-    <%= f.input :card, label: "Tarjeta de credito:", placeholder: "Ej: 4563-3459-9564-1368" %>
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+              <% end %>
 
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
+              <%= f.input :password, label: "Contraseña:", autocomplete: "off", hint: "Dejar en blanco si no se quiere cambiar", required: false %>
+              <%= f.input :password_confirmation, label: "Repetir contraseña:", required: false %>
+              <%= f.input :current_password, label: "Contraseña actual:", hint: "Necesitamos su contraseña actual para confirmar los cambios", required: true %>
+            </div>
+            <div class="form-actions">
+              <%= f.button :submit, "Actualizar", class: "btn btn-primary" %>
+              <%= link_to "Cancelar", :back, class: "btn btn-primary" %>
+            </div>
+          <% end %>
 
-    <%= f.input :password, label: "Contraseña:", autocomplete: "off", hint: "Dejar en blanco si no se quiere cambiar", required: false %>
-    <%= f.input :password_confirmation, label: "Repetir contraseña:", required: false %>
-    <%= f.input :current_password, label: "Contraseña actual:", hint: "Necesitamos su contraseña actual para confirmar los cambios", required: true %>
+          <h3>Cancelar mi cuenta</h3>
+
+          <p>Desconforme? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Esta seguro?" }, method: :delete %></p>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Actualizar", class: "btn btn-primary" %>
-    <%= link_to "Cancelar", :back, class: "btn btn-primary" %>
-  </div>
-<% end %>
-
-<h3>Cancelar mi cuenta</h3>
-
-<p>Desconforme? <%= link_to "Cancelar mi cuenta", registration_path(resource_name), data: { confirm: "¿Esta seguro?" }, method: :delete %></p>
+</div>
