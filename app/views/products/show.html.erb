@@ -23,8 +23,10 @@
           <div class="col-md-6">
             <div class="btn-group pull-right">
               <% if user_signed_in? %>
-                <%= link_to "Editar Subasta", edit_product_path, class: "btn btn-default" %>
-                <%= link_to "Borrar", product_path, method: :delete, data: { confirm: "¿Estas seguro?" }, class: "btn btn-default" %>
+                <% if current_user == @product.user %>
+                  <%= link_to "Editar Subasta", edit_product_path, class: "btn btn-default" %>
+                  <%= link_to "Borrar", product_path, method: :delete, data: { confirm: "¿Estas seguro?" }, class: "btn btn-default" %>
+                <% end %>
               <% end %>
             </div>
           </div>
