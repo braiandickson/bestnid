@@ -8,6 +8,8 @@
         <h1>
           <%= @product.name %>
         </h1>
+        <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
+        <br>
         <p class="description">
           <%= @product.description %>
         </p>

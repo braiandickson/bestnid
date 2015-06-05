@@ -28,6 +28,7 @@
           </div>
           <% if user_signed_in? %>
             <ul class="nav navbar-nav navbar-right">
+              <li id="saludo">¡Hola, <%= current_user.name %>!</li>
               <li><%= link_to "Crear Subasta", new_product_path %></li>
               <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
               <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
