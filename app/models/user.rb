@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :products
+
+
+validates_presence_of :name, :email, :card, :password, :password_confirmation, :message => :required
+
+
 end

@@ -6,13 +6,14 @@
 	      <h2>
 	      	<%= link_to product.name, product %>
 	      </h2>
+	      <p>Subastado por <%= product.user.name %></p>
 	    </div>
 	  <% end %>
 	</div>
 <% else %>
 	<% if params[:search] %>
-		<p id="no_coincide">- No hay productos que coincidan con <%= params[:search] %> -</p>
+		<p id="no_coincide"> No hay productos que coincidan con <%= params[:search] %> </p>
 	<% else %>
-		<p id="no_hay">- No hay productos cargados -</p>
+		<p id="no_hay"> No hay productos cargados </p>
 	<% end %>
 <% end %>

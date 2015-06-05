@@ -5,24 +5,17 @@
         <%= pluralize(@product.errors.count, "error") %>
         causa que el producto no pueda darse de alta.
       </h2>
-      <ul>
-        <% @product.errors.full_messages.each do |msg| %>
-          <li>
-            <%= msg %>
-          </li>
-        <% end %>
-      </ul>
     </div>
   <% end %>
   <div class="form-group">
-    <%= f.input :image, label: 'Imagen:', input_html: { class: 'form-control' } %>
+    <%= f.input :image, label: 'Imagen:', requiered: true, input_html: { class: 'form-control' } %>
   </div>
   <div class="form-group">
-    <%= f.input :name, label: 'Nombre del Producto:', input_html: { class: 'form-control' } %>
+    <%= f.input :name, label: 'Nombre del Producto:', requiered: true, :error_html => {:id => "name_prod_error"} , input_html: { class: 'form-control' } %>
   </div>
   <div class="form-group">
     <%= f.input :description, label: 'Descripcion del Producto:', input_html: { class: 'form-control' } %>
-    <%= f.input :period, label: 'Tiempo de subasta:', prompt: '15', collection: 15..30, default: 15%>
+    <%= f.input :period, label: 'Tiempo de subasta:', requiered: true, prompt: '15', collection: 15..30, default: 15%>
   </div>
   <%= f.button :submit, 'Crear Subasta', { class: "btn btn-primary" }%>
   <%= link_to "Cancelar", root_path, class: "btn btn-primary" %>

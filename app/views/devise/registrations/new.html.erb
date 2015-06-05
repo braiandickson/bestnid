@@ -8,9 +8,9 @@
 	      	<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
 				<%= f.error_notification %>
 				  <div class="form-inputs">
-				  	<%= f.input :name, label: "Nombre:", placeholder: "Escriba su mail o apodo...", requiered: true, autofocus: true %>
+				  	<%= f.input :name, label: "Nombre:", placeholder: "Escriba su mail o apodo...", required: true, autofocus: true %>
 				    <%= f.input :email, label: "Correo electronico:", placeholder: "Ej: nombre@dominio.com", required: true %>
-				    <%= f.input :card, label: "Tarjeta de credito:", placeholder: "Ej: 4563-3459-9564-1368" %>
+				    <%= f.input :card, label: "Tarjeta de credito:", placeholder: "Ej: 4563-3459-9564-1368", required: true %>
 				    <%= f.input :password, label: "Contraseña:", required: true, hint: ("#{@minimum_password_length} caracteres minimo" if @validatable) %>
 				    <%= f.input :password_confirmation, label: "Confirmar contraseña:", required: true %>
 				  </div>
