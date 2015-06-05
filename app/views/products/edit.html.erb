@@ -1,5 +1,16 @@
-<h1>Editar Subasta</h1>
-
-<%= render 'form' %>
-
-<%= link_to "Cancelar", product_path %>
+<div class="col-md-8 col-md-offset-2" id="edit_page">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Editar Subasta</h1>
+      </div>
+      <div class="panel-body">
+        <div class="current_image">
+          <strong class="center">Imagen actual:</strong>
+          <%= image_tag @product.image.url(:medium) %>
+        </div>
+        <%= render 'form' %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -22,6 +22,7 @@
 
 
 body {
+	font-family: Ubuntu;
 	padding: 70px;
 	background: #E9E9E9;
 }
@@ -30,9 +31,23 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 100;
 }
 
+#titulo {
+	font-family: Ubuntu;
+	font-size: 30px;
+}
+
+#busqueda {
+	text-align: center;
+	padding-top: 10px;
+	font-family: Ubuntu;
+	font-size: 14px;
+	margin: 0px;
+}
+
 #products {
   margin: 0 auto;
   width: 100%;
+  font-family: Ubuntu;
   .box {
 	  margin: 10px;
 	  width: 350px;
@@ -61,6 +76,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 #product_show {
+	font-family: Ubuntu;
 	.panel-heading {
 		padding: 0;
 	}
