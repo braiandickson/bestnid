@@ -24,4 +24,4 @@ en:
     errors:
       messages:
         blank: "Este campo es obligatorio."
-        requiered: "Este campo es obligatorio."
+        required: "Este campo es obligatorio."
