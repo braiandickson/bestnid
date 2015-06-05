@@ -1,7 +1,28 @@
-<%= simple_form_for @product do |f| %>
-	<%= f.input :image, as: :file %>
-	<%= f.input :name, label: 'Ingrese el nombre del producto a subastar' %>
-	<%= f.input :description, label: 'Ingrese la descripción del producto' %>
-	<%= f.input :period, label: 'Tiempo de subasta:', prompt: '15', collection: 15..30, default: 15%>
-	<%= f.button :submit, 'Crear Subasta'%>
-<% end  %>
+<%= simple_form_for @product, html: { multipart: true } do |f| %>
+  <% if @product.errors.any? %>
+    <div id="errors">
+      <h2>
+        <%= pluralize(@product.errors.count, "error") %>
+        causa que el producto no pueda darse de alta.
+      </h2>
+      <ul>
+        <% @product.errors.full_messages.each do |msg| %>
+          <li>
+            <%= msg %>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="form-group">
+    <%= f.input :image, input_html: { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :name, input_html: { class: 'form-control' } %>
+  </div>
+  <div class="form-group">
+    <%= f.input :description, input_html: { class: 'form-control' } %>
+    <%= f.input :period, label: 'Tiempo de subasta:', prompt: '15', collection: 15..30, default: 15%>
+  </div>
+  <%= f.button :submit, 'Crear Subasta', { class: "btn btn-primary" }%>
+<% end %>
