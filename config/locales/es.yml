@@ -19,9 +19,9 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
+es:
   activerecord:
     errors:
       messages:
-        blank: "This field cannot be left blank"
-        required: "This field is required."
+        blank: "Este campo es obligatorio."
+        required: "Este campo es obligatorio."
