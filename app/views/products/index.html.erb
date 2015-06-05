@@ -11,8 +11,8 @@
 	</div>
 <% else %>
 	<% if params[:search] %>
-		<p>No hay productos que coincidan con <%= params[:search] %>.</p>
+		<p id="no_coincide">- No hay productos que coincidan con <%= params[:search] %> -</p>
 	<% else %>
-		<p>No hay productos cargados.</p>
+		<p id="no_hay">- No hay productos cargados -</p>
 	<% end %>
 <% end %>

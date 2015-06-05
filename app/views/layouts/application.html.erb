@@ -19,7 +19,9 @@
               <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-right", id: "busqueda") do %>
                 <p>
                   <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su busqueda..." %>
-                  <%= submit_tag "Buscar", name: nil, class: "btn btn-default" %>
+                  <%= submit_tag "Buscar", name: nil, class: "btn btn-primary" do %>
+                    <i class="glyphicon glyphicon-search"></i>
+                  <% end %>
                 </p>
               <% end %>
             </a>
