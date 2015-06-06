@@ -1,6 +1,6 @@
 <% if @products.present? %>
 	<div class="transitions-enabled" id="products">
-		<div>
+		<div data-no-turbolink>>
 			<%= link_to "Ordenar por nombre", sort: "name" %>
 			<%= link_to "Ordenar por fecha de publicación", sort: "created_at" %>
 			<%= link_to "Ordenar por fecha de finalización", sort: "due_date" %>
