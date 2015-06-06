@@ -18,7 +18,7 @@
             <a class="navbar-brand" <%= link_to "Bestnid", root_path , class: "navbar-brand", target: "_parent", id: "titulo" %>
               <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-right", id: "busqueda") do %>
                 <p>
-                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su busqueda..." %>
+                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su búsqueda..." %>
                   <%= submit_tag "Buscar", name: nil, class: "btn btn-primary" do %>
                     <i class="glyphicon glyphicon-search"></i>
                   <% end %>
@@ -41,7 +41,7 @@
           <% end %>
         </nav>
       </div>
-      <div>
+      <div data-no-turbolink>
         <%= link_to "Ordenar por nombre", sort: "name" %> - 
         <%= link_to "Ordenar por fecha de publicación", sort: "created_at" %> - 
         <%= link_to "Ordenar por fecha de finalización", sort: "due_date" %>
