@@ -23,5 +23,5 @@ en:
   activerecord:
     errors:
       messages:
-        blank: "This field cannot be left blank"
-        required: "This field is required."
+        blank: "Este campo es obligatorio."
+        required: "Este campo es obligatorio."

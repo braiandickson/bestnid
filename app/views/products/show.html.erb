@@ -8,6 +8,8 @@
         <h1>
           <%= @product.name %>
         </h1>
+        <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
+        <br>
         <p class="description">
           <%= @product.description %>
         </p>
@@ -23,8 +25,10 @@
           <div class="col-md-6">
             <div class="btn-group pull-right">
               <% if user_signed_in? %>
-                <%= link_to "Editar Subasta", edit_product_path, class: "btn btn-default" %>
-                <%= link_to "Borrar", product_path, method: :delete, data: { confirm: "¿Estas seguro?" }, class: "btn btn-default" %>
+                <% if current_user == @product.user %>
+                  <%= link_to "Editar Subasta", edit_product_path, class: "btn btn-default" %>
+                  <%= link_to "Borrar", product_path, method: :delete, data: { confirm: "¿Estas seguro?" }, class: "btn btn-default" %>
+                <% end %>
               <% end %>
             </div>
           </div>
