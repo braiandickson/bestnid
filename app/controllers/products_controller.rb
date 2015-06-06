@@ -7,9 +7,9 @@ class ProductsController < ApplicationController
 	def index
 	  @products = Product.all
 	  if params[:search]
-	    @products = Product.search(params[:search]).order("created_at DESC")
+	    @products = Product.search(params[:search]).order(params[:sort])
 	  else
-	    @products = Product.order("created_at DESC")
+	    @products = Product.order(params[:sort])
 	  end
 	end
 
