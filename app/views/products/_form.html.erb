@@ -6,7 +6,7 @@
     <%= f.input :name, label: 'Nombre del Producto:', required: true, :error_html => {:id => "name_prod_error"} , input_html: { class: 'form-control' } %>
   </div>
   <div class="form-group">
-    <%= f.input :description, label: 'Descripcion del Producto:', input_html: { class: 'form-control' } %>
+    <%= f.input :description, label: 'Descripción del Producto:', input_html: { class: 'form-control' } %>
     <%= f.input :period, label: 'Duración de la subasta en días:', required: true, prompt: '15', collection: 15..30, default: 15%>
   </div>
   <%= f.button :submit, 'Crear Subasta', { class: "btn btn-primary" }%>
