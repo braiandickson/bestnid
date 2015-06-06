@@ -5,7 +5,6 @@ class ProductsController < ApplicationController
 
 
 	def index
-	  @products = Product.all
 	  if params[:search]
 	    @products = Product.search(params[:search]).order(params[:sort])
 	  else
