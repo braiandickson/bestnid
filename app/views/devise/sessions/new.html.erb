@@ -11,10 +11,10 @@
 				<%- end -%>
 					<div class="form-inputs">
 						<div class="form-group">
-				  			<%= f.input :email, label: "Correo electronico:", required: true, autofocus: true, input_html: { class: 'form-control' } %>
+				  			<%= f.input :email, label: "Correo electronico:", placeholder: "Escriba su correo electronico.",required: true, autofocus: true, input_html: { class: 'form-control' } %>
 				  		</div>
 				  		<div class="form-group">
-					    	<%= f.input :password, label: "Contraseña:", autocomplete: "off", required: true, input_html: { class: 'form-control' } %>
+					    	<%= f.input :password, label: "Contraseña:", placeholder: "Ocho caracteres como minimo.", autocomplete: "off", required: true, input_html: { class: 'form-control' } %>
 					    </div>
 						<div class="form-group">
 					   		<%= f.input :remember_me, label: "Recordar sesion", as: :boolean if devise_mapping.rememberable? %>
