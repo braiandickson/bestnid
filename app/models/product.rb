@@ -3,13 +3,13 @@ class Product < ActiveRecord::Base
 	before_save :set_due_date
 	belongs_to :user
  
- 	#validates :image, presence: true, uniqueness: true
-  	validates :name, presence: true, uniqueness: true
-  	validates :description, presence: true, uniqueness: true
-  	validates_presence_of :image, :message => :required
-  	
-  	#validates :content, presence: true
-  	#validates_length_of :name, :minimum => 6, :message => "Tiene que ingresar un nombre para el producto."
+ 		
+	validates :name, presence: true, uniqueness: true
+	validates :description, presence: true
+	validates_presence_of :image, :message => :required
+	
+	#validates :content, presence: true
+	#validates_length_of :name, :minimum => 6, :message => "Tiene que ingresar un nombre para el producto."
 
 	include ProductsHelper
 
