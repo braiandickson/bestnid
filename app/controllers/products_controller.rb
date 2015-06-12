@@ -7,8 +7,10 @@ class ProductsController < ApplicationController
 	def index
 	  if params[:search]
 	    @products = Product.search(params[:search]).order(params[:sort])
+	  elsif (params[:sort].eql? "name")
+	  	@products = Product.order('lower(name)')
 	  else
-	    @products = Product.order(params[:sort])
+	  	@products = Product.order(params[:sort])
 	  end
 	end
 
