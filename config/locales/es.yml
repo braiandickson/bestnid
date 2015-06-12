@@ -25,3 +25,12 @@ es:
       messages:
         blank: "Este campo es obligatorio."
         required: "Este campo es obligatorio."
+      models:
+        user:
+          attributes:
+            email:
+              invalid: "El formato del email es inválido."
+            password:
+              too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
+            password_confirmation:
+              confirmation: "Las contraseñas no coinciden."
