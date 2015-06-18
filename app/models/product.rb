@@ -3,8 +3,8 @@ class Product < ActiveRecord::Base
 	before_save :set_due_date
 	belongs_to :user
  
-	validates :name, presence: true, uniqueness: true
-	validates :description, presence: true
+	validates :name, presence: true, uniqueness: true, length: {:maximum => 25}
+	validates :description, presence: true, length: {:maximum => 250}
 	validates_presence_of :image, :message => :required
 	
 	include ProductsHelper

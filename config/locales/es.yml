@@ -34,3 +34,10 @@ es:
               too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
             password_confirmation:
               confirmation: "Las contraseñas no coinciden."
+        product:
+          attributes:
+            name:
+              too_long: "El nombre debe tener una longitud máxima de 25 caracteres."
+              taken: "Ya existe un producto con este nombre. Por favor ingrese uno distinto."
+            description:
+              too_long: "La descripción debe tener una longitud máxima de 250 caracteres."
