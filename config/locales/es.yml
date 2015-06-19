@@ -35,6 +35,7 @@ es:
             email:
               invalid: "El formato del email es inválido."
               taken: "El email ingresado ya ha sido elegido por otro usuario."
+              too_long: "El email debe tener una longitud máxima de 25 caracteres."
             password:
               too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
             password_confirmation:
