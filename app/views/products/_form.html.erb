@@ -7,7 +7,7 @@
   </div>
   <div class="form-group">
     <%= f.input :description, label: 'Descripción del Producto:', placeholder: "Ingrese una descripción bien detallada del producto a subastar.", input_html: { class: 'form-control' } %>
-    <%= f.input :period, label: 'Duración de la subasta en días:', required: true, prompt: '15', collection: 15..30, default: 15%>
+    <%= f.input :period, label: 'Duración de la subasta en días:', required: true, collection: 15..30, default: 15%>
   </div>
   <div data-no-turbolink>
     <%= f.button :submit, 'Crear Subasta', { class: "btn btn-primary" }%>
