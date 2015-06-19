@@ -31,6 +31,7 @@ es:
             name:
               too_long: "El nombre debe tener una longitud máxima de 25 caracteres."
               taken: "Ya existe un usuario con el nombre ingresado."
+              invalid: "Nombre inválido. El nombre solo puede incluir letras, números y \"_\""
             email:
               invalid: "El formato del email es inválido."
               taken: "El email ingresado ya ha sido elegido por otro usuario."
