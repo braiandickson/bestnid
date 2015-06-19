@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
   card_regex = /\d{16}/
 	validates_presence_of :name, :email, :card, :password, :password_confirmation, :message => :required
 	validates_length_of :name, {:maximum => 25, :message => :too_long}
+	validates_uniqueness_of :name, :email, :card, {:message => :taken} 
+
 	validates :email, format: {:with => email_regex, :message => :invalid}
 	validates :card, format: {:with => card_regex, :message => :invalid}
 

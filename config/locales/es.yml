@@ -30,14 +30,17 @@ es:
           attributes:
             name:
               too_long: "El nombre debe tener una longitud máxima de 25 caracteres."
+              taken: "Ya existe un usuario con el nombre ingresado."
             email:
               invalid: "El formato del email es inválido."
+              taken: "El email ingresado ya ha sido elegido por otro usuario."
             password:
               too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
             password_confirmation:
               confirmation: "Las contraseñas no coinciden."
             card:
               invalid: "El formato del número de tarjeta de crédito es inválido."
+              taken: "El número de tarjeta ingresado ya existe en el sistema."
         product:
           attributes:
             name:
