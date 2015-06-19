@@ -28,12 +28,16 @@ es:
       models:
         user:
           attributes:
+            name:
+              too_long: "El nombre debe tener una longitud máxima de 25 caracteres."
             email:
               invalid: "El formato del email es inválido."
             password:
               too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
             password_confirmation:
               confirmation: "Las contraseñas no coinciden."
+            card:
+              invalid: "El formato del número de tarjeta de crédito es inválido."
         product:
           attributes:
             name:
