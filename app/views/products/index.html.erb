@@ -1,5 +1,16 @@
 <% if @products.present? %>
+<% params[:sort] ||= "name" %>
+
+<div class="sorting-options">Ordenado por <%= (criteria_for params[:sort]) %>
+	<div data-no-turbolink>
+		  <%= link_to "Ordenar por Nombre", sort: "name" %> - 
+		  <%= link_to "Ordenar por Fecha de Publicación", sort: "created_at" %> - 
+		  <%= link_to "Ordenar por Fecha de Finalización", sort: "due_date" %>
+  </div>
+</div>
+
 	<div class="transitions-enabled" id="products">
+
 	  <% @products.each do |product| %>
 	    <div class="box panel panel-default">
 	      <%= link_to (image_tag product.image.url), product %>
