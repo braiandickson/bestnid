@@ -4,7 +4,7 @@ class Product < ActiveRecord::Base
 	belongs_to :user
  
 	validates :name, presence: true, uniqueness: true, length: {:maximum => 25}
-	validates :description, presence: true, length: {:maximum => 250}
+	validates :description, presence: true, length: {:maximum => 750}
 	validates_presence_of :image, :message => :required
 	
 	include ProductsHelper
