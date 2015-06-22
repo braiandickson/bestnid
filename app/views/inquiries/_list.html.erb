@@ -1,8 +1,13 @@
 <div class="inquiry-list">
 
-  <% [1,2,3].each do |i| %>
-    <div class="inquiry"><%= "inquiry #{i}" %></div>
-  <% end %> 
-  
+	<% if current_user %>
+	  <% if current_user == @product.user %>
+	 	<%= "inquiries con input de respuesta - usuario subastador" %>
+	  <% else %>
+	 	<%= "inquiries con input de pregunta - usuario oferente" %>
+	  <% end %> 
+	<% else %>
+		 <%= "inquiries no editables - usuario invitado"%>
+  <% end %>
 
 </div>
