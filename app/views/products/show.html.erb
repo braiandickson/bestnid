@@ -13,16 +13,23 @@
         <br>
         <p class="description">
           <%= @product.description %>
+          <hr>
+        </p>
+        <p class="user">
+          Subastado por
+          <%= @product.user.name %>
         </p>
       </div>
 
       <div class="panel-footer">
         <div class="row">
           <div class="col-md-6">
-            <p class="user">
-              Subastado por
-              <%= @product.user.name %>
-            </p>
+            <div class="col-md-6">
+              <p class="bidding">
+                Ofertar por el producto
+              </p>
+              <%= render "biddings/form" %>
+            </div>
           </div>
 
           <div class="col-md-6">
@@ -35,7 +42,6 @@
               <% end %>
             </div>
           </div>
-        
         </div>
       </div>
 

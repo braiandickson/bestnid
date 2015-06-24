@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :products
+  has_many :biddings
 
   email_regex = /\A.+@.+\..+$\z/
   card_regex = /\A\d+\z/

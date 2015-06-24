@@ -1,0 +1,5 @@
+<%= simple_form_for([@product, @product.biddings.build]) do |f| %>
+  <%= f.input :reason %>
+  <%= f.input :amount %>
+  <%= f.submit %>
+<% end %>
