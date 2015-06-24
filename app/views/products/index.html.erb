@@ -22,7 +22,9 @@
 	      <p>Fecha de finalización: <%= product.due_date.strftime("%d %b %Y") %></p>
 	    </div>
 	  <% end %>
+	  
 	</div>
+
 <% else %>
 	<% if params[:search] %>
 		<p id="no_coincide"> No hay productos que coincidan con <%= params[:search] %> </p>

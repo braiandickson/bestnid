@@ -1,0 +1,25 @@
+<div class="ask-questions-list">
+
+	<%= "inquiries con input de pregunta - usuario oferente" %>
+
+	<% @inquiries = Inquiry.find_by(product_id: (@product.id)) || [] %>
+
+	<% @inquiries.each do |i| %>
+		<hr>
+		<div class="inquiry-element">
+			<%= i.question %>
+			<%= i.answer %>
+		</div>
+		<hr>
+	<% end %>
+
+	<div class="inquiry-new">
+		<% @inquiry = Inquiry.new %>
+		<%= simple_form_for @inquiry, html: { multipart: true } do |i| %>
+			 <%= i.input :question, label: false, required: true, placeholder: "Escriba su pregunta..."%>
+			 <%= i.submit 'Preguntar' %>
+		<% end %>
+	</div>
+
+		
+</div>
