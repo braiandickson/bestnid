@@ -4,6 +4,7 @@ class Product < ActiveRecord::Base
 	before_save :set_due_date
 	belongs_to :user
 	has_many :biddings
+	has_many :inquiries
  
 	validates :name, presence: true, uniqueness: true, length: {:maximum => 25}
 	validates :description, presence: true, length: {:maximum => 750}

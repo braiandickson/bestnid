@@ -14,8 +14,7 @@
 	<% end %>
 
 	<div class="inquiry-new">
-		<% @inquiry = Inquiry.new %>
-		<%= simple_form_for @inquiry, html: { multipart: true } do |i| %>
+		<%= simple_form_for([@product, @product.inquiries.build]) do |i| %>
 			 <%= i.input :question, label: false, required: true, placeholder: "Escriba su pregunta..."%>
 			 <%= i.submit 'Preguntar' %>
 		<% end %>

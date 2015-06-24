@@ -1,9 +1,9 @@
 Rails.application.routes.draw do
 	
-  resources :inquiries
 
 	resources :products do
 		resources :biddings
+		resources :inquiries
 	end
 
 	root "products#index"
