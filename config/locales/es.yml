@@ -38,6 +38,7 @@ es:
               too_long: "El email debe tener una longitud máxima de 25 caracteres."
             password:
               too_short: "La contraseña debe tener una longitud mínima de 8 caracteres."
+              too_long: "La contraseña ingresada es demasiado larga."
             password_confirmation:
               confirmation: "Las contraseñas no coinciden."
             card:

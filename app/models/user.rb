@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :products
+  has_many :biddings
 
   email_regex = /\A.+@.+\..+$\z/
   card_regex = /\A\d+\z/
@@ -13,7 +14,7 @@ class User < ActiveRecord::Base
 	validates_presence_of :name, :email, :card, :password, :password_confirmation, :message => :required
 	validates_length_of :name, {:maximum => 25, :message => :too_long}
 	validates_format_of :name, {:with => name_regex, :message => :invalid}
-	validates_uniqueness_of :name, :email, :card, {:message => :taken} 
+	validates_uniqueness_of :email, :card, {:message => :taken} 
 
 	validates :email, format: {:with => email_regex, :message => :invalid}
 	validates :email, length: {:maximum => 25, :message => :too_long}
