@@ -2,6 +2,11 @@ class BiddingsController < ApplicationController
 	
 	before_action :authenticate_user!
 
+
+	def index
+		@bidding = Product.find(params[:product_id]).biddings.all
+	end
+
 	def create
 		@product = Product.find(params[:product_id])
 		@bidding = @product.biddings.create(params[:bidding].permit(:reason, :amount))

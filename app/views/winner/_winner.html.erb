@@ -2,7 +2,7 @@
 	<% @bidding.each do | b | %>
 		<div class="bidding">
 			<h2 class="user">
-				<%= b.user.name %>
+				<%= link_to b.user.name, b  %>
 			</h2>
 			<p class="reason">
 				<%= b.reason %>

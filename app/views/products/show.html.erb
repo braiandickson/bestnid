@@ -8,6 +8,7 @@
       <div class="panel-body">
         <h1>
           <%= @product.name %>
+          <%= link_to "Ganador", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), :class => "ui-button" %>
         </h1>
         <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
         <br>
