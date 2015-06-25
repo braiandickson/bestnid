@@ -1,0 +1,21 @@
+<div class="ask-questions-list">
+
+	<% @product.inquiries.each do |i| %>
+		<hr>
+		<div class="inquiry-element">
+			<%= i.user.name %> preguntó:<br>
+			<%= i.question %>
+			<%= i.answer %>
+		</div>
+		<hr>
+	<% end %>
+
+	<div class="inquiry-new">
+		<%= simple_form_for([@product, @product.inquiries.build]) do |i| %>
+			 <%= i.input :question, label: false, required: true, placeholder: "Escriba su pregunta..."%>
+			 <%= i.submit 'Preguntar' %>
+		<% end %>
+	</div>
+
+		
+</div>

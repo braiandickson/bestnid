@@ -29,11 +29,13 @@ ActiveRecord::Schema.define(version: 20150625173454) do
     t.string   "question"
     t.string   "answer"
     t.integer  "product_id"
+    t.integer  "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "inquiries", ["product_id"], name: "index_inquiries_on_product_id"
+  add_index "inquiries", ["user_id"], name: "index_inquiries_on_user_id"
 
   create_table "products", force: :cascade do |t|
     t.string   "name"

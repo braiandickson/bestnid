@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 	
-  resources :inquiries
 
 	resources :products do
 		resources :biddings
 		resources :winners
+		resources :inquiries
 	end
 
 	root "products#index"

@@ -1,0 +1,13 @@
+<div class="see-questions-list">
+
+		<% @product.inquiries.each do |i| %>
+			<hr>
+			<div class="inquiry-element">
+				<%= i.user.name %> preguntó: <br>
+				<%= i.question %> <br>
+				<%= "#{@product.user.name} respondió: \n #{i.answer}" if i.answer %>
+			</div>
+			<hr>
+		<% end %>
+
+</div>

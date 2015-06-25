@@ -1,13 +1,12 @@
 <div class="inquiry-list">
-
 	<% if current_user %>
 	  <% if current_user == @product.user %>
-	 	<%= "inquiries con input de respuesta - usuario subastador" %>
+	   <%= render 'inquiries/answer_questions' %>
 	  <% else %>
-	 	<%= "inquiries con input de pregunta - usuario oferente" %>
+	   <%= render 'inquiries/ask_questions' %>
 	  <% end %> 
 	<% else %>
-		 <%= "inquiries no editables - usuario invitado"%>
+   <%= render 'inquiries/see_questions' %>
   <% end %>
 
 </div>
