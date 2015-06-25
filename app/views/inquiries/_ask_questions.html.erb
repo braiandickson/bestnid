@@ -1,12 +1,9 @@
 <div class="ask-questions-list">
 
-	<%= "inquiries con input de pregunta - usuario oferente" %>
-
-	<% @inquiries = Product.find(params[:id]).inquiries || [] %>
-
-	<% @inquiries.each do |i| %>
+	<% @product.inquiries.each do |i| %>
 		<hr>
 		<div class="inquiry-element">
+			<%= i.user.name %> preguntó:<br>
 			<%= i.question %>
 			<%= i.answer %>
 		</div>
