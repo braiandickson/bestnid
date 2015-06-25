@@ -1,5 +1,15 @@
 <div class="see-questions-list">
 
-		<%= "inquiries no editables - usuario invitado"%>
+		<% @inquiries = Product.find(params[:id]).inquiries || [] %>
+
+		<% @inquiries.each do |i| %>
+			<hr>
+			<div class="inquiry-element">
+				<%= i.user.name %> preguntó: <br>
+				<%= i.question %> <br>
+				<%= "#{@product.user.name} respondió: \n #{i.answer}" if i.answer %>
+			</div>
+			<hr>
+		<% end %>
 
 </div>
