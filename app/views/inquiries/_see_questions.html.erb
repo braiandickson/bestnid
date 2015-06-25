@@ -1,8 +1,6 @@
 <div class="see-questions-list">
 
-		<% @inquiries = Product.find(params[:id]).inquiries || [] %>
-
-		<% @inquiries.each do |i| %>
+		<% @product.inquiries.each do |i| %>
 			<hr>
 			<div class="inquiry-element">
 				<%= i.user.name %> preguntó: <br>
