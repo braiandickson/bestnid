@@ -30,7 +30,6 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		byebug
 		@inquiries = @product.inquiries
 	end
 
