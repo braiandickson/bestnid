@@ -5,7 +5,8 @@
 			<div class="inquiry-element">
 				<%= i.user.name %> preguntó: <br>
 				<%= i.question %> <br>
-				<%= "#{@product.user.name} respondió: \n #{i.answer}" if i.answer %>
+				<%= "#{@product.user.name} respondió:" if i.answer %><br>
+				<%= i.answer %>
 			</div>
 			<hr>
 		<% end %>
