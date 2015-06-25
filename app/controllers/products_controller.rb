@@ -30,14 +30,14 @@ class ProductsController < ApplicationController
 	end
 
 	def show
-		
+		byebug
+		@inquiries = @product.inquiries
 	end
 
 	def edit
 	end
 
 	def update
-		byebug
 		if @product.update(product_params)
 			redirect_to @product, notice: "Actualizado con exito!"
 		else
@@ -59,10 +59,6 @@ class ProductsController < ApplicationController
 
 	def find_product
 		@product = Product.find(params[:id])
-	end
-
-	def add_inquiry
-		byebug
 	end
 
 end

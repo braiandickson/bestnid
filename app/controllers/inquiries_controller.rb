@@ -5,7 +5,6 @@ class InquiriesController < ApplicationController
 	end
 
 	def create
-		byebug
 		
 		@product = Product.find(params[:product_id])
 		@inquiry = @product.inquiries.create(params[:inquiry].permit(:question))

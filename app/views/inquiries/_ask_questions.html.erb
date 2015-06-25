@@ -2,7 +2,7 @@
 
 	<%= "inquiries con input de pregunta - usuario oferente" %>
 
-	<% @inquiries = Inquiry.find_by(product_id: (@product.id)) || [] %>
+	<% @inquiries = Product.find(params[:id]).inquiries || [] %>
 
 	<% @inquiries.each do |i| %>
 		<hr>
