@@ -1,12 +1,15 @@
 <div class="answer-questions-list">
 
 	<% @product.inquiries.each do |e| %>
-		<hr>
 		<div class="inquiry-element">
-	  <%= e.user.name %> preguntó:<br>
+			<div class="name-tag">
+	 			<%= e.user.name %> preguntó:<br>
+			</div>
 			<% if e.answer %>
-				<%= e.question %><br><hr>
-				<%= "#{@product.user.name} respondió:" if e.answer %><br>
+				<%= e.question %><hr>
+				<div class="name-tag">
+					<%= "Respuesta:" if e.answer %><br>
+				</div>
 				<%= e.answer %>
 			<% else %>
 		   <%= e.question %>
