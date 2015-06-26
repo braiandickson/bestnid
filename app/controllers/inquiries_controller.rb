@@ -9,6 +9,7 @@ class InquiriesController < ApplicationController
 		@inquiry = @product.inquiries.create(params[:inquiry].permit(:question))
 		@inquiry.user_id = current_user.id if current_user
 		if @inquiry.save
+			flash[:notice] = "Pregunta enviada con éxito!"
 			redirect_to product_path(@product)
 		else
 			flash[:invalid] = "El campo de pregunta no puede ser vacío."
@@ -21,12 +22,13 @@ class InquiriesController < ApplicationController
 		@product = Product.find(params[:product_id])
 		@inquiry = @product.inquiries.find_by(id: params[:id])
 		#byebug
-		if @inquiry.update(inquiry_params)
+		if !inquiry_params[:answer].blank? && @inquiry.update(inquiry_params)
 			flash[:notice] = "Pregunta respondida con éxito!"
-      		redirect_to @product
+      		redirect_to product_path(@product)
     	else
-      		render 'answer_questions'
-    	end
+    		flash[:invalid] = "El campo de respuesta no puede ser vacío."
+      		redirect_to product_path(@product)
+      	end
 
 	end
 
