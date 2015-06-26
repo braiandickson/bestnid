@@ -11,15 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150625173454) do
+ActiveRecord::Schema.define(version: 20150626203857) do
 
   create_table "biddings", force: :cascade do |t|
     t.text     "reason"
     t.decimal  "amount"
     t.integer  "product_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.boolean  "is_winner",  default: false
   end
 
   add_index "biddings", ["product_id"], name: "index_biddings_on_product_id"
@@ -74,13 +75,11 @@ ActiveRecord::Schema.define(version: 20150625173454) do
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
 
   create_table "winners", force: :cascade do |t|
-    t.integer  "product_id"
     t.integer  "bidding_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   add_index "winners", ["bidding_id"], name: "index_winners_on_bidding_id"
-  add_index "winners", ["product_id"], name: "index_winners_on_product_id"
 
 end

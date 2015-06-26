@@ -4,7 +4,7 @@ class BiddingsController < ApplicationController
 
 
 	def index
-		@bidding = Product.find(params[:product_id]).biddings.all
+		@biddings = Product.find(params[:product_id]).biddings.all
 	end
 
 	def create
@@ -18,6 +18,12 @@ class BiddingsController < ApplicationController
 		else
 			render 'new'
 		end
+	end
+
+	def update
+		@bidding = Bidding.find(params[:id])
+		@bidding.update(:is_winner => true)
+		redirect_to product_path(params[:product_id])
 	end
 
 end
