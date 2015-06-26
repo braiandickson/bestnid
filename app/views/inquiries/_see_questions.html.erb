@@ -1,13 +1,18 @@
 <div class="see-questions-list">
 
 		<% @product.inquiries.each do |i| %>
-			<hr>
 			<div class="inquiry-element">
-				<%= i.user.name %> preguntó: <br>
+				<div class="name-tag">
+					<%= i.user.name %> preguntó: <br>
+				</div>
 				<%= i.question %> <br>
-				<%= "#{@product.user.name} respondió: \n #{i.answer}" if i.answer %>
+				<div class="name-tag">
+					<%= "Respuesta:" if i.answer %><br>
+				</div>
+				<%= i.answer %>
 			</div>
 			<hr>
 		<% end %>
+		<div class="grayed-out">Debes iniciar sesión para poder preguntar.</div>
 
 </div>

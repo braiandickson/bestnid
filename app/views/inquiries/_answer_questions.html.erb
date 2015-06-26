@@ -1,5 +1,28 @@
 <div class="answer-questions-list">
 
-	<%= "inquiries con input de respuesta - usuario subastador" %>
+	<% @product.inquiries.each do |e| %>
+		<div class="inquiry-element">
+			<div class="name-tag">
+	 			<%= e.user.name %> preguntó:<br>
+			</div>
+			<% if e.answer %>
+				<%= e.question %><hr>
+				<div class="name-tag">
+					<%= "Respuesta:" if e.answer %><br>
+				</div>
+				<%= e.answer %>
+			<% else %>
+		   <%= e.question %>
+
+
+			 <%= simple_form_for([@product, @product.inquiries.find_by(id: e.id)]) do |i| %>
+		 	   <%= i.input :answer, required:true, label: false, placeholder: "Escriba su respuesta..."%>
+		 	   <%= i.button :submit, 'Responder' %>
+	      <% end %>
+
+			<% end %>
+		</div>
+		<hr>
+	<% end %>
 
 </div>

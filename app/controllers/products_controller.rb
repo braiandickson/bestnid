@@ -23,7 +23,8 @@ class ProductsController < ApplicationController
 		@product = current_user.products.build(product_params)
 
 		if @product.save
-			redirect_to @product, notice: "Subasta creada!"
+			flash[:notice] =  "Subasta creada!"
+			redirect_to @product
 		else
 			render 'new'
 		end
@@ -38,7 +39,8 @@ class ProductsController < ApplicationController
 
 	def update
 		if @product.update(product_params)
-			redirect_to @product, notice: "Actualizado con exito!"
+			flash[:notice] = "Actualizado con exito!"
+			redirect_to @product
 		else
 			render 'edit'
 		end
