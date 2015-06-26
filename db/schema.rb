@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150626203857) do
+ActiveRecord::Schema.define(version: 20150626230609) do
 
   create_table "biddings", force: :cascade do |t|
     t.text     "reason"
@@ -42,9 +42,9 @@ ActiveRecord::Schema.define(version: 20150626203857) do
     t.string   "name"
     t.text     "description"
     t.date     "due_date"
-    t.string   "state"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.string   "state",              default: "active"
+    t.datetime "created_at",                            null: false
+    t.datetime "updated_at",                            null: false
     t.integer  "user_id"
     t.string   "image_file_name"
     t.string   "image_content_type"

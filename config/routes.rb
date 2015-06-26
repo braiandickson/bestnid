@@ -7,8 +7,6 @@ Rails.application.routes.draw do
 		resources :inquiries
 	end
 
-
-
 	root "products#index"
 	
 	devise_for :users, :controllers => { registrations: 'registrations' }
