@@ -30,7 +30,7 @@ class Product < ActiveRecord::Base
 
 	def self.search(search)
    		where("name like ?", "%#{search}%") 
-  end
+    end
 
 	def period=(value)
 		@period = value.to_i

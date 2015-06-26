@@ -41,9 +41,23 @@
           <% end %>
         </nav>
       </div>
-      
     </header>
     <div class="container">
+      <!--
+        Notificaciones usando flash
+       -->
+      <% if flash[:notice] %>
+        <div class="notice">
+          <%= flash[:notice] %>
+        </div>
+      <%elsif flash[:invalid] %>
+        <div class="invalid">
+          <%= flash[:invalid] %>
+        </div>
+      <% end -%>
+      <!--
+        Contenido de la página
+      -->
       <%= yield %>
     </div>
   </body>
