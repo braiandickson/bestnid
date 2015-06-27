@@ -7,11 +7,26 @@
       
       <div class="panel-body">
         <h1>
+          
+          <% winning_bidding = @product.biddings.find {|b| b.is_winner?} %>
+          <% winner = winning_bidding.user if winning_bidding %>
+
           <%= @product.name %><br>
-          <% if current_user == @product.user && @product.state == 'finished' %>
-            <h1 style= "color: red;"> SUBASTA FINALIZADA</h1>
-            <%= link_to "Ver Ofertas", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), { class: "btn btn-primary" } %>
+
+          <% if  @product.state == 'finished' %>
+               <h1 style= "color: red;"> SUBASTA FINALIZADA</h1>
           <% end %>
+
+          <% if !winner %>
+            <% if current_user == @product.user && @product.state == 'active' %>
+              <%= link_to "Ver Ofertas", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), { class: "btn btn-primary" } %>
+            <% end %>
+          <% else %>
+            <h1 style= "color: blue;">
+              <%= "Ganador de la subasta: #{winner.name}" %>
+            </h1>
+          <% end %>
+
         </h1><br>
 
         <h2>
