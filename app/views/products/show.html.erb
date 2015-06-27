@@ -31,7 +31,7 @@
           <%= @product.user.name %>
         </p>
       </div>
-      <% if current_user.email != 'admin@test.com' %>
+      <% if current_user && current_user.email != 'admin@test.com' %>
         <% if current_user != @product.user && @product.state == 'active' %>
           <div class="panel-footer">
             <div class="row">
@@ -40,7 +40,7 @@
           </div>
         <% end %>
       <% end %>
-      <% if current_user.email != 'admin@test.com' %>
+      <% if current_user && current_user.email != 'admin@test.com' %>
         <div class="panel-footer inquiries">
           <%= render 'inquiries/list' %>
         </div> 
