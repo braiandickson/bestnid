@@ -7,9 +7,15 @@
       
       <div class="panel-body">
         <h1>
-          <%= @product.name %>
+          <%= @product.name %><br>
+
           <%= link_to "Ganador", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), :class => "ui-button" %>
-        </h1>
+        </h1><br>
+
+        <h2>
+          <%= link_to_if is_cancellable?, "Cancelar Subasta", product_path, method: :delete, data: { confirm: "¿Estas seguro?" } %>
+        </h2>
+
         <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
         <br>
         <p class="description">

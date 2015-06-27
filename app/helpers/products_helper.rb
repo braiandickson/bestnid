@@ -13,4 +13,8 @@ module ProductsHelper
 		criteria[field]
 	end
 
+	def is_cancellable?
+		current_user == @product.user && @product.biddings.size == 0
+	end
+
 end
