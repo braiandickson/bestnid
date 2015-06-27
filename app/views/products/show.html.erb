@@ -13,7 +13,9 @@
         </h1><br>
 
         <h2>
-          <%= link_to_if is_cancellable?, "Cancelar Subasta", product_path, method: :delete, data: { confirm: "¿Estas seguro?" } %>
+        <% if is_cancellable? %>
+         <%= link_to "Cancelar Subasta", product_path, method: :delete, data: { confirm: "¿Estas seguro?" } %>
+        <% end %>
         </h2>
 
         <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
