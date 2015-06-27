@@ -18,7 +18,7 @@
           <% end %>
 
           <% if !winner %>
-            <% if current_user == @product.user && @product.state == 'active' %>
+            <% if current_user == @product.user && @product.state == 'finished' %>
               <%= link_to "Ver Ofertas", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), { class: "btn btn-primary" } %>
             <% end %>
           <% else %>
