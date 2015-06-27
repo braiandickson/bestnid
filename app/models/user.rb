@@ -17,7 +17,7 @@ class User < ActiveRecord::Base
 	validates_uniqueness_of :email, :card, {:message => :taken} 
 
 	validates :email, format: {:with => email_regex, :message => :invalid}
-	validates :email, length: {:maximum => 25, :message => :too_long}
+	validates :email, length: {:maximum => 50, :message => :too_long}
 	validates :card, format: {:with => card_regex, :message => :invalid}
 	validates :card, length: {:is => 16, :message => :invalid}
 
