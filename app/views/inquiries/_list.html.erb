@@ -1,12 +1,16 @@
 <div class="inquiry-list">
 	<% if current_user %>
 	  <% if current_user == @product.user %>
-	   <%= render 'inquiries/answer_questions' %>
+	    <%= render 'inquiries/answer_questions' %>
+	  <% elsif @product.state == 'active'%>
+	    <%= render 'inquiries/ask_questions' %>
 	  <% else %>
-	   <%= render 'inquiries/ask_questions' %>
+		<%= render 'inquiries/see_questions' %>
+		<div class="grayed-out">Esta subasta se encuentra finalizada, no se permiten más preguntas.</div>  
 	  <% end %> 
 	<% else %>
-   <%= render 'inquiries/see_questions' %>
+   		<%= render 'inquiries/see_questions' %>
+   		<div class="grayed-out">Debes iniciar sesión para poder preguntar.</div>
   <% end %>
 
 </div>

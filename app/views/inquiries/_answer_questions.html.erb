@@ -5,23 +5,20 @@
 			<div class="name-tag">
 	 			<%= e.user.name %> preguntó:<br>
 			</div>
+			<%= e.question %><br></div>
 			<% if e.answer %>
-				<%= e.question %><hr>
+				<div class="inquiry-reply">
 				<div class="name-tag">
 					<%= "Respuesta:" if e.answer %><br>
 				</div>
-				<%= e.answer %>
+				<%= e.answer %></div>
 			<% else %>
-		   <%= e.question %>
-
-
 			 <%= simple_form_for([@product, @product.inquiries.find_by(id: e.id)]) do |i| %>
 		 	   <%= i.input :answer, required:true, label: false, placeholder: "Escriba su respuesta..."%>
 		 	   <%= i.button :submit, 'Responder' %>
 	      <% end %>
 
 			<% end %>
-		</div>
 		<hr>
 	<% end %>
 

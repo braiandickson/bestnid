@@ -168,7 +168,15 @@ textarea {
 }
 
 .inquiry-element {
+	border-radius: 5px 5px 0px 0px;
+	padding: 10px 15px 5px 15px;
 	background-color: #DDDDDD;
+}
+
+.inquiry-reply {
+	border-radius: 0px 0px 5px 5px;
+	background-color: #EEEEEE;
+	padding: 5px 15px 10px 15px;
 }
 
 .name-tag {

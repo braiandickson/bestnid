@@ -5,12 +5,14 @@
 			<div class="name-tag">
 				<%= i.user.name %> preguntó:<br>
 			</div>
-			<%= i.question %><br>
+			<%= i.question %><br></div>
+			<div class="inquiry-reply">
 			<div class="name-tag">
 				<%= "Respuesta:" if i.answer %><br>
 			</div>
 			<%= i.answer %>
-		</div>	
+		</div>
+
 		<hr>
 	<% end %>
 
