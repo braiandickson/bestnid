@@ -1,11 +1,13 @@
 <div id="biddings">
-	<% @bidding.each do | b | %>
+	<% @biddings.each do |bidding| %>
 		<div class="bidding">
 			<h2 class="user">
-				<%= b.user.name %>
+				<%= bidding.user.email %>
 			</h2>
+				<%= link_to 'Seleccionar como ganador', product_bidding_path(bidding.id, bidding.product.id), :method => :put %>
+
 			<p class="reason">
-				<%= b.reason %>
+				<%= bidding.reason %>
 			</p>
 			<hr>
 		</div>
