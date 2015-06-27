@@ -31,16 +31,6 @@
       <div class="panel-footer">
         <div class="row">
           <%= render "biddings/form" %>
-          <div class="col-md-6">
-            <div class="btn-group pull-right">
-              <% if user_signed_in? %>
-                <% if current_user == @product.user %>
-                  <%= link_to "Editar Subasta", edit_product_path, class: "btn btn-default" %>
-                  <%= link_to "Borrar", product_path, method: :delete, data: { confirm: "¿Estas seguro?" }, class: "btn btn-default" %>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
         </div>
       </div>
 
