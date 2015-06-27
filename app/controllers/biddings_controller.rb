@@ -23,7 +23,7 @@ class BiddingsController < ApplicationController
 	def update
 		@bidding = Bidding.find(params[:id])
 		@bidding.update(:is_winner => true)
-		@bidding.product.update(:state => :finished)
+		@bidding.product.update(:state => 'finished')
 		redirect_to product_path(params[:product_id])
 	end
 
