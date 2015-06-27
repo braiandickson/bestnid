@@ -12,10 +12,15 @@
 	<% end %>
 
 	<div class="inquiry-new">
+		
 		<%= simple_form_for([@product, @product.inquiries.build]) do |i| %>
+		<div class="form-inputs">
+			 <%= i.error_notification %>
 			 <%= i.input :question, label: false, required: true, placeholder: "Escriba su pregunta..."%>
 			 <%= i.submit 'Preguntar' %>
 		<% end %>
+		</div>
+	
 	</div>
 
 		

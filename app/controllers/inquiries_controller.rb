@@ -13,7 +13,7 @@ class InquiriesController < ApplicationController
 		if @inquiry.save
 			redirect_to product_path(@product)
 		else
-			render 'new'
+			render 'products/show'
 		end
 
 	end
