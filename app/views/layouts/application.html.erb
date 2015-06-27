@@ -5,10 +5,6 @@
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
-    <!--[if lt IE 9]>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/r29/html5.min.js">
-      </script>
-    <![endif]-->
   </head>
   <body margin-top: 50px>
     <header class="navbar navbar-fixed-top navbar-inverse">
@@ -27,12 +23,18 @@
             </a>
           </div>
           <% if user_signed_in? %>
-            <ul class="nav navbar-nav navbar-right">
-              <li id="saludo">¡Hola, <%= current_user.name %>!</li>
-              <li><%= link_to "Crear Subasta", new_product_path %></li>
-              <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
-              <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
-            </ul>
+            <% if current_user.email != 'admin@test.com' %>
+              <ul class="nav navbar-nav navbar-right">
+                <li id="saludo">¡Hola, <%= current_user.name %>!</li>
+                <li><%= link_to "Crear Subasta", new_product_path %></li>
+                <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% else %>
+              <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+              </ul>
+            <% end %>
           <% else %>
             <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>

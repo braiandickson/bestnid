@@ -1,4 +1,3 @@
-
 class Product < ActiveRecord::Base
 	#after_initialize :init
 	before_save :set_due_date

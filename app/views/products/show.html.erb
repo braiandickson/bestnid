@@ -8,8 +8,10 @@
       <div class="panel-body">
         <h1>
           <%= @product.name %><br>
-
-          <%= link_to "Ver Ofertas", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), :class => "ui-button" %>
+          <% if current_user == @product.user && @product.state == 'finished' %>
+            <h1 style= "color: red;"> SUBASTA FINALIZADA</h1>
+            <%= link_to "Ver Ofertas", product_biddings_path(:product_id => @product.id, :bidding_id => @bidding_id), { class: "btn btn-primary" } %>
+          <% end %>
         </h1><br>
 
         <h2>
@@ -29,17 +31,20 @@
           <%= @product.user.name %>
         </p>
       </div>
-
-      <div class="panel-footer">
-        <div class="row">
-          <%= render "biddings/form" %>
-        </div>
-      </div>
-
-      <div class="panel-footer inquiries">
-        <%= render 'inquiries/list' %>
-      </div> 
-
+      <% if current_user.email != 'admin@test.com' %>
+        <% if current_user != @product.user && @product.state == 'active' %>
+          <div class="panel-footer">
+            <div class="row">
+              <%= render "biddings/form" %>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+      <% if current_user.email != 'admin@test.com' %>
+        <div class="panel-footer inquiries">
+          <%= render 'inquiries/list' %>
+        </div> 
+      <% end %>
     </div>
   </div>
 </div>
