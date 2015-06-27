@@ -25,6 +25,7 @@ class BiddingsController < ApplicationController
 		@bidding.update(:is_winner => true)
 		@bidding.product.update(:state => 'finished')
 		redirect_to product_path(params[:product_id])
+		flash[:notice] =  "Ud. ha elegido un ganador! Estamos procesando el cobro de su comisión. Gracias por operar con nosotros!"
 	end
 
 end
