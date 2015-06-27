@@ -8,7 +8,6 @@ class InquiriesController < ApplicationController
 		@product = Product.find(params[:product_id])
 		@inquiry = @product.inquiries.create(params[:inquiry].permit(:question))
 		@inquiry.user_id = current_user.id if current_user
-		@inquiry.save
 
 		if @inquiry.save
 			flash[:notice] = "Pregunta enviada con éxito!"
