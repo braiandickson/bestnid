@@ -13,9 +13,11 @@
 				</div>
 				<%= e.answer %></div>
 			<% else %>
-			 <%= simple_form_for([@product, @product.inquiries.find_by(id: e.id)]) do |i| %>
-		 	   <%= i.input :answer, required:true, label: false, placeholder: "Escriba su respuesta..."%>
-		 	   <%= i.button :submit, 'Responder' %>
+				<% if @product.state != 'finished' %>
+					 <%= simple_form_for([@product, @product.inquiries.find_by(id: e.id)]) do |i| %>
+				 	   <%= i.input :answer, required:true, label: false, placeholder: "Escriba su respuesta..."%>
+				 	   <%= i.button :submit, 'Responder' %>
+				<% end %>
 	      <% end %>
 
 			<% end %>

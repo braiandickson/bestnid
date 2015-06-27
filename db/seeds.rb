@@ -32,3 +32,12 @@ test_user2 = User.create(
 	name: "TestUser2",
 	card: "1111111111111111"
 )
+
+#Create test user3
+test_user3 = User.create(
+	email: "test3@test.com",
+	password: "test1234",
+	password_confirmation: "test1234",
+	name: "TestUser3",
+	card: "2222222222222222"
+)

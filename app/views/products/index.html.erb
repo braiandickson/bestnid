@@ -16,6 +16,9 @@
 	      <%= link_to (image_tag product.image.url), product %>
 	      <h2>
 	      	<%= link_to product.name, product %>
+	      	<% if product.state == 'finished' %>
+	      		<h2 style= "color: red;"> SUBASTA FINALIZADA</h2>
+	      	<% end %>
 	      </h2>
 	      <hr>
 	      <p>Subastado por <%= product.user.name %></p>
