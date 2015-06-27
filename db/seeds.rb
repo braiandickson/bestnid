@@ -7,6 +7,15 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 #Create test user1
+
+admin_user = User.create(
+	email: "admin@test.com",
+	password: "test1234",
+	password_confirmation: "test1234",
+	name: "Admin",
+	card: "1234123412341235"
+)
+
 test_user1 = User.create(
 	email: "test@test.com",
 	password: "test1234",
