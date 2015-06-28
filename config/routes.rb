@@ -10,5 +10,5 @@ Rails.application.routes.draw do
 	root "products#index"
 	
 	devise_for :users, :controllers => { registrations: 'registrations' }
-
+	resources :users, :only => [:index]
 end

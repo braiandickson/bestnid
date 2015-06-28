@@ -32,6 +32,7 @@
               </ul>
             <% else %>
               <ul class="nav navbar-nav navbar-right">
+                <li><%= link_to "Usuarios Registrados", users_path %></li>
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
               </ul>
             <% end %>
