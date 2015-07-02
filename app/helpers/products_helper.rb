@@ -26,4 +26,10 @@ module ProductsHelper
 		!self.biddings.empty?
 	end
 
+	def refresh_state
+		if self.state = 'active'
+			self.state = 'finished' if Time.today.date > self.due_date
+		end
+	end
+
 end
