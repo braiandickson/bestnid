@@ -8,8 +8,7 @@
       <div class="panel-body">
         <h1>
           
-          <% winning_bidding = @product.biddings.find {|b| b.is_winner?} %>
-          <% winner = winning_bidding.user if winning_bidding %>
+          <% winner = @product.winner %>
 
           <%= @product.name %><br>
 

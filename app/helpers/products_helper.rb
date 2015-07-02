@@ -17,4 +17,13 @@ module ProductsHelper
 		current_user == @product.user && @product.biddings.size == 0
 	end
 
+	def winner
+		winning_bidding = self.biddings.find {|b| b.is_winner?}
+		winning_bidding ? winning_bidding.user : nil
+	end
+
+	def has_biddings?
+		!self.biddings.empty?
+	end
+
 end
