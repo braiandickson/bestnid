@@ -21,6 +21,20 @@ class BiddingsController < ApplicationController
 	end
 
 	def update
+		@biddings = current_user.biddings
+		@bidding = Bidding.find_by(id: params[:id])
+
+		if !bidding_params[:amount].blank? && @bidding.update(bidding_params)
+    	flash[:notice] = "Monto actualizado con éxito!"
+    else
+    	flash[:invalid] = "Por favor, ingrese un monto válido."
+    end
+
+    render 'list_active'
+		
+	end
+
+	def set_as_winning
 		@bidding = Bidding.find(params[:id])
 		@bidding.update(:is_winner => true)
 		@bidding.product.update(:state => 'finished')
@@ -30,6 +44,12 @@ class BiddingsController < ApplicationController
 
 	def list_active
 		@biddings = Bidding.select { |b| b.user == current_user }
+	end
+
+	private
+
+	def bidding_params
+		params.require(:bidding).permit(:amount)
 	end
 
 end
