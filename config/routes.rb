@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
 	put '/biddings/:id', to: 'biddings#update', as: "bidding"
+	get '/biddings/list_active', to: "biddings#list_active"
 
 	resources :products do
 		resources :biddings

@@ -1,9 +1,0 @@
-<div class="bidding">
-  <h3>Editar monto de la oferta</h3>
-  <%= simple_form_for bidding  do |f| %>
-    <div class="form-group">
-      <%= f.input :amount, label: 'Nuevo monto:', placeholder: "Ingrese un monto para el producto.", required: true, input_html: { class: 'form-control' } %>
-    </div>
-    <%= f.button :submit, 'Guardar', { class: "btn btn-primary" }%>
-  <% end %>
-</div>
