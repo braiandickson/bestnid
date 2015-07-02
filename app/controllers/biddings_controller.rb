@@ -28,4 +28,8 @@ class BiddingsController < ApplicationController
 		flash[:notice] =  "Ud. ha elegido un ganador! Estamos procesando el cobro de su comisión. Gracias por operar con nosotros!"
 	end
 
+	def list_active_for_user
+		@biddings = Bidding.select { |b| b.user == current_user }
+	end
+
 end
