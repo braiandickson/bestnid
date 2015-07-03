@@ -7,7 +7,7 @@
 			<p class="reason">
 				<%= bidding.reason %>
 			</p>
-				<%= link_to 'Seleccionar como ganador', product_bidding_path(bidding.product.id, bidding.id), :method => :put %>
+				<%= link_to 'Seleccionar como ganador', bidding_path(bidding.id), :method => :put %>
 			<hr>
 		</div>
 	<% end %>
