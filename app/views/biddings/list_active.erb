@@ -7,7 +7,7 @@
 		<div class="bidding">
 			<%= bidding.product.name %><br>
 			Subastado por <%= bidding.product.user.name %><br>
-			Monto ofrecido por tí: <%= bidding.amount %><br>
+			Monto ofrecido por tí: $<%= bidding.amount %><br>
 
 		  <h3>Editar monto de la oferta</h3>
 		  <%= simple_form_for ([@product, bidding])  do |f| %>

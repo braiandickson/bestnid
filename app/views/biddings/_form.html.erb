@@ -6,7 +6,7 @@
         <%= f.input :reason, label: 'Razón:', placeholder: "Escriba la razón por la cual piensa que merece el producto.",required: true, input_html: { class: 'form-control' } %>
       </div>
       <div class="form-group">
-        <%= f.input :amount, label: 'Monto:', placeholder: "Ingrese un monto para el producto.", required: true, input_html: { class: 'form-control' } %>
+        <%= f.input :amount, label: 'Monto: $', placeholder: "Ingrese un monto para el producto.", required: true, input_html: { class: 'form-control' } %>
       </div>
       <%= f.button :submit, 'Ofertar', { class: "btn btn-primary" }%>
     <% end %>
