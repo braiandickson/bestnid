@@ -43,7 +43,7 @@ class BiddingsController < ApplicationController
 	end
 
 	def list_active
-		@biddings = Bidding.select { |b| b.user == current_user }
+		@biddings_to_list = current_user.biddings_without_winner
 	end
 
 	private

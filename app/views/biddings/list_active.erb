@@ -1,7 +1,8 @@
 <br><br><br>
 <div id="biddings">
-	<% @biddings.each do |bidding| %>
-		<% unless bidding.product.winner  %>
+
+<% if @biddings_to_list.any? %>
+	<% @biddings_to_list.each do |bidding| %>
 		
 		<div class="bidding">
 			<%= bidding.product.name %><br>
@@ -19,6 +20,8 @@
 		</div>
 		</div>
 
-		<% end %>
 	<% end %>
+	<% else %>
+	<h2><%= "Usted no tiene ofertas vigentes" %></h2>
+<% end %>
 </div>

@@ -8,4 +8,8 @@ module UsersHelper
 		self.products.map { |p| p.has_biddings? && p.winner.nil? }.any?
 	end
 
+	def biddings_without_winner
+		self.biddings.select { |b| !b.product.has_winner? }
+	end
+
 end

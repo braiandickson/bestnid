@@ -22,6 +22,10 @@ module ProductsHelper
 		winning_bidding ? winning_bidding.user : nil
 	end
 
+	def has_winner?
+		!self.winner.nil?
+	end
+	
 	def has_biddings?
 		!self.biddings.empty?
 	end
