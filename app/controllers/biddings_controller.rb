@@ -30,6 +30,8 @@ class BiddingsController < ApplicationController
     	flash[:invalid] = "Por favor, ingrese un monto válido."
     end
 
+    @biddings_to_list = current_user.biddings_without_winner
+    
     render 'list_active'
 		
 	end
