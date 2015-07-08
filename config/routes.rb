@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'created_accounts/index'
+
 	put '/biddings/:id', to: 'biddings#set_as_winning', as: "bidding"
 	get '/biddings/list_active', to: "biddings#list_active"
 	patch '/biddings/:id', to: "biddings#update"
