@@ -29,7 +29,7 @@
 
           <h3>Cancelar mi cuenta</h3>
           <% asuntos_pendientes = (current_user.has_active_auctions? || current_user.any_auctions_waiting_for_winner?) %>
-          <p>Desconforme? <%= link_to_unless asuntos_pendientes, "Cancelar mi cuenta (solo si no tiene subastas activas o esperando selección de ganador)", registration_path(resource_name), data: { confirm: "¿Esta seguro?" }, method: :delete %></p>
+          <p>Desconforme? <%= link_to_unless asuntos_pendientes, "Cancelar mi cuenta (no debe tener subastas creadas activas o esperando ganador)", registration_path(resource_name), data: { confirm: "¿Esta seguro de que desea cancelar su cuenta?" }, method: :delete %></p>
       </div>
     </div>
   </div>
