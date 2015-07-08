@@ -4,7 +4,6 @@ class BiddingsController < ApplicationController
 
 
 	def index
-		byebug
 		@biddings = Product.find(params[:product_id]).biddings_with_user
 	end
 
