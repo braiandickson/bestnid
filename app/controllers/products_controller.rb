@@ -15,6 +15,10 @@ class ProductsController < ApplicationController
 	  end
 	end
 
+	def concluded
+		@product = Product.where(:state == 'finished').order("created_at DESC")
+	end
+
 	def new
 		@product = current_user.products.build
 	end

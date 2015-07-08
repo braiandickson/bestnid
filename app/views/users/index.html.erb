@@ -1,2 +1,14 @@
 <h2> Usuarios Registrados: </h2>
+
+<%= form_tag("/users", method: "get") do %>
+	<%= label_tag(:q_c1, "Elija una fecha:") %>
+	<%= date_field(:q, :c1) %>
+	<%= label_tag(:q_c2, "Elija otra fecha:") %>
+	<%= date_field(:q, :c2) %>
+	<%= submit_tag "Buscar"%>
+	<%=  %>
+<% end %>
+
+
+
 	<%= render 'user' %>
