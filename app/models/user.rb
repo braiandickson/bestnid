@@ -28,7 +28,7 @@ class User < ActiveRecord::Base
   private
 
   def log_to_history
-    CreatedAccounts.create(name: self.name, email: self.email, registration_date: self.created_at.to_date)
+    CreatedAccount.create(name: self.name, email: self.email, registration_date: self.created_at.to_date)
   end
 
 end
