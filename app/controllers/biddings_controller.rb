@@ -4,7 +4,7 @@ class BiddingsController < ApplicationController
 
 
 	def index
-		@biddings = Product.find(params[:product_id]).biddings.all
+		@biddings = Product.find(params[:product_id]).biddings.all.select { |b| User.all.include? b.user }
 	end
 
 	def create

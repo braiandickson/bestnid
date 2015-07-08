@@ -1,3 +1,7 @@
-<h2>Lista de ofertas del producto subastado:</h2>
+<% if @biddings.any? %>
+		<h2>Lista de ofertas del producto subastado:</h2>
+<% else %>
+		<h2 class="reason">No existen ofertas vigentes para esta subasta.</h2>	
+<% end %>
 
 <%= render 'bidding' %>
