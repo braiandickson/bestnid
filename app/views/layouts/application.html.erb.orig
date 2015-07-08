@@ -35,8 +35,14 @@
               </ul>
             <% else %>
               <ul class="nav navbar-nav navbar-right">
-                <li><%= link_to "Usuarios Registrados", created_accounts_index_path %></li>
+<<<<<<< HEAD
+                <li><%= link_to "Usuarios Registrados", users_path %></li>
                 <li><%= link_to "Subastas Finalizadas", products_concluded_path %></li>
+
+=======
+                <li><%= link_to "Usuarios Registrados", created_accounts_index_path %></li>
+              
+>>>>>>> 8bb05a225fe826fe695100e416b2cdecffd1d027
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
               </ul>
             <% end %>
