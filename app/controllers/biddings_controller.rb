@@ -4,7 +4,8 @@ class BiddingsController < ApplicationController
 
 
 	def index
-		@biddings = Product.find(params[:product_id]).biddings.all.select { |b| User.all.include? b.user }
+		byebug
+		@biddings = Product.find(params[:product_id]).biddings_with_user
 	end
 
 	def create

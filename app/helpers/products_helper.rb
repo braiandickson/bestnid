@@ -36,4 +36,8 @@ module ProductsHelper
 		end
 	end
 
+	def biddings_with_user #biddings excluding any biddings made by a canceled user account
+		self.biddings.all.select { |b| User.all.include? b.user }
+	end
+
 end
