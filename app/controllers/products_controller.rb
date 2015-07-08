@@ -16,7 +16,28 @@ class ProductsController < ApplicationController
 	end
 
 	def concluded
-		@product = Product.where(:state == 'finished').order("created_at DESC")
+
+		@products = Product.where(:state == 'finished').order("created_at DESC")
+
+
+		=begin
+			if params[:date_from].present? && params[:date_to].present?
+				byebug
+				@products = Product.where(:update_at => params[:c1]..params[:c2]).order("name DESC")
+			else
+				if params[:c1].present?
+					@users = User.where(:created_at => params[:q1][:c1]..Date.today).not(email: 'admin@test.com')
+				elsif params[:c2].present?
+					#@users = User.where(:created_at => User.first..params[:q2] ).not(email: 'admin@test.com')
+					@users = User.where.not(email: 'admin@test.com').order("name ASC")
+				else
+					@users = User.find(4)
+				end
+			end
+		=end
+
+
+
 	end
 
 	def new
@@ -63,12 +84,13 @@ class ProductsController < ApplicationController
 	end
 
 	def find_product
-		begin
+		#begin
 			@product = Product.find(params[:id])
-		rescue =>e
-			redirect_to root_path
-			flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
-		end
+		
+		#rescue =>e
+		#	redirect_to root_path
+		#	flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
+		#end
 	end
 
 end

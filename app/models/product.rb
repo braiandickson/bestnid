@@ -37,4 +37,8 @@ class Product < ActiveRecord::Base
 		@period = value.to_i
 	end
 
+	#def self.get_concluded
+	#	self.all.select { |p| p.has_winner? }
+	#end
+
 end
