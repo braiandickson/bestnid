@@ -5,6 +5,8 @@ Rails.application.routes.draw do
 	get '/biddings/list_active', to: "biddings#list_active"
 	patch '/biddings/:id', to: "biddings#update"
 
+	get '/products/concluded', to: "products#concluded", as: "concluded"
+
 	resources :products do
 		resources :biddings
 		resources :inquiries

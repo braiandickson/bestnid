@@ -1,0 +1,18 @@
+<h2> Usuarios Registrados </h2>
+
+<%= form_tag(created_accounts_index_path, method: :get) do %>
+	<%= label_tag(:from_date, "Desde") %>
+	<%= date_field(:search_dates, :from_date) %>
+	<%= label_tag(:to_date, "Hasta") %>
+	<%= date_field(:search_dates, :to_date) %>
+	<%= submit_tag "Obtener Reporte"%>
+<% end %>
+
+<% @created_accounts.each do | account | %>
+	<p>
+	<%= account.name %>
+	<%= account.email %>
+	<%= account.created_at %>
+	<br>
+	</p>
+<% end %>

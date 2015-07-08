@@ -12,4 +12,8 @@ module UsersHelper
 		self.biddings.select { |b| !b.product.has_winner? }
 	end
 
+	def is_admin?
+		self == User.find_by(email: "admin@test.com")
+	end
+
 end

@@ -4,6 +4,8 @@ class User < ActiveRecord::Base
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  after_save :log_to_history
+
   include UsersHelper
   
   has_many :products
@@ -22,5 +24,11 @@ class User < ActiveRecord::Base
 	validates :email, length: {:maximum => 50, :message => :too_long}
 	validates :card, format: {:with => card_regex, :message => :invalid}
 	validates :card, length: {:is => 16, :message => :invalid}
+
+  private
+
+  def log_to_history
+    CreatedAccount.create(name: self.name, email: self.email, registration_date: self.created_at.to_date)
+  end
 
 end
