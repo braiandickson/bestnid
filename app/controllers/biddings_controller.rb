@@ -45,7 +45,8 @@ class BiddingsController < ApplicationController
 	end
 
 	def list_active
-		@biddings_to_list = current_user.biddings_without_winner
+		#@biddings_to_list = current_user.biddings_without_winner
+		@biddings_to_list = current_user.biddings
 	end
 
 	private
