@@ -16,7 +16,9 @@ class ProductsController < ApplicationController
 	end
 
 	def concluded
-		@product = Product.where(:state == 'finished').order("created_at DESC")
+
+		@products = Product.where(:state == 'finished').order("created_at DESC")
+
 	end
 
 	def new
@@ -63,12 +65,13 @@ class ProductsController < ApplicationController
 	end
 
 	def find_product
-		begin
+		#begin
 			@product = Product.find(params[:id])
-		rescue =>e
-			redirect_to root_path
-			flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
-		end
+		
+		#rescue =>e
+		#	redirect_to root_path
+		#	flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
+		#end
 	end
 
 end

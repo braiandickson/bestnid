@@ -1,0 +1,14 @@
+<h1> Subastas finalizadas </h1>
+
+<%= form_tag("/products/concluded", method: "get") do %>
+	<%= label_tag(:date_from, "Elija una fecha:") %>
+	<%= date_field(:search_dates, :date_from) %>
+	<%= label_tag(:date_to, "Elija otra fecha:") %>
+	<%= date_field(:search_dates, :date_to) %>
+	<%= submit_tag "Buscar"%>
+	<%=  %>
+<% end %>
+
+
+
+	<%= render 'concluded' %>
