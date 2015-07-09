@@ -8,7 +8,7 @@ class CreatedAccountsController < ApplicationController
   	}
   	@from_date = params[:search_dates][:from_date]
   	@to_date = params[:search_dates][:to_date]
-  	@created_accounts = CreatedAccount.where(registration_date: (@from_date..@to_date)).uniq
+  	@created_accounts = CreatedAccount.where(registration_date: (@from_date..@to_date))
   end
 
 end
