@@ -1,18 +1,35 @@
-<h2> Usuarios Registrados </h2>
+<div class="header">
+	<h2> Usuarios Registrados </h2>
+</div>
 
-<%= form_tag(created_accounts_index_path, method: :get) do %>
-	<%= label_tag(:from_date, "Desde") %>
-	<%= date_field(:search_dates, :from_date) %>
-	<%= label_tag(:to_date, "Hasta") %>
-	<%= date_field(:search_dates, :to_date) %>
-	<%= submit_tag "Obtener Reporte"%>
-<% end %>
+<hr>
+<div class="body">
+	<div class="search">
+		<%= form_tag(created_accounts_index_path, method: :get) do %>
+			<%= label_tag(:from_date, "Desde") %>
+			<%= date_field(:search_dates, :from_date, value: @from_date) %>
+			<%= label_tag(:to_date, "Hasta", value: @to_date) %>
+			<%= date_field(:search_dates, :to_date) %>
+			<%= submit_tag "Obtener Reporte"%>
+		<% end %>
+	</div>
 
-<% @created_accounts.each do | account | %>
-	<p>
-	<%= account.name %>
-	<%= account.email %>
-	<%= account.registration_date %>
-	<br>
-	</p>
-<% end %>
+<hr>
+
+	<div class="list">
+	<% @created_accounts.each do | account | %>
+		<p>
+		<%= account.name %>
+		<%= account.email %>
+		<%= account.registration_date %>
+		<br>
+		</p>
+	<% end %>
+	</div>
+
+</div>
+<hr>
+
+<div class="footer">
+	Total: <%= @created_accounts.size %>
+</div>
