@@ -52,7 +52,7 @@
           <% unless @product.biddings.find_by(:user => current_user) %>
               <div class="panel-footer">
                 <div class="row">
-                  <%= render "biddings/form" %>
+                  <%= render "biddings/form" if current_user %>
                 </div>
               </div>
           <% end %>  
