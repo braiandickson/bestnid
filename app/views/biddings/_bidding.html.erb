@@ -2,7 +2,7 @@
 	<% @biddings.each do |bidding| %>
 		<div class="bidding">
 			<h2 class="user">
-				<%= bidding.user.name %>
+				<%= bidding.user ? bidding.user.name : "Usuario cancelado"%>
 			</h2>
 			<p class="reason">
 				<%= bidding.reason %>

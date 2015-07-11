@@ -6,7 +6,7 @@
 		
 		<div class="bidding">
 			<%= bidding.product.name %><br>
-			Subastado por <%= bidding.product.user.name %><br>
+			Subastado por <%= bidding.product.user ? bidding.product.user.name : "Usuario cancelado" %><br>
 			Monto ofrecido por tí: $<%= bidding.amount %><br>
 
 			<%= link_to ( image_tag bidding.product.image.url ), bidding.product %>

@@ -44,7 +44,7 @@
         </p>
         <p class="user">
           Subastado por
-          <%= @product.user.name %>
+          <%= @product.user ? @product.user.name : "Usuario cancelado" %>
         </p>
       </div>
       <% if current_user && current_user.email != 'admin@test.com' %>
