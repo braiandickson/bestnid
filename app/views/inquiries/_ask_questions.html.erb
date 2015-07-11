@@ -3,7 +3,7 @@
 	<% @product.inquiries.each do |i| %>
 		<div class="inquiry-element">
 			<div class="name-tag">
-				<%= i.user.name %> preguntó:<br>
+				<%= i.user ? i.user.name : "Usuario cancelado" %> preguntó:<br>
 			</div>
 			<%= i.question %><br></div>
 			<div class="inquiry-reply">
