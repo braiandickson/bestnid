@@ -3,7 +3,6 @@ class UsersController < ApplicationController
 	def index
 
 		if params[:c1] && params[:c2].present?
-			byebug
 			@users = User.where(:created_at => params[:c1]..params[:c2]).order("name DESC")
 		else
 			if params[:c1].present?
