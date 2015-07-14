@@ -1,14 +1,18 @@
 <h1>Mis Subastas</h1>
+<br>
 <% if @products.any? %>
 	<% @products.each do | p | %>
-		<h3><%= link_to p.name, p %></h3>
-		<%= link_to (image_tag p.image.url), p %>
-		<% if p.state == "active" %>
-			<h4>Subasta activa</h4>
-		<% else %>
-			<h4>Subasta finalizada</h4>
-		<% end %>
-		<br>
+		<div style="">
+			<%= link_to (image_tag p.image.url, { :height => 150, :crop => :fill }), p  %>
+			<p><%= link_to p.name, p %></p>
+			<% if p.state == "active" %>
+				<p>Subasta activa</p>
+			<% else %>
+				<p>Subasta finalizada</p>
+				<br>
+			<% end %>
+			<br>
+		</div>
 	<% end %>
 <% else %>
 	<h2>Usted no tiene subastas creadas.</h2>
