@@ -28,7 +28,7 @@
                 <li id="saludo">¡Hola, <%= current_user.name %>!</li>
                 <li><%= link_to "Crear Subasta", new_product_path %></li>
                 <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
-                
+                <li><%= link_to "Mis Subastas", products_my_auctions_path %></li>
                 <li><%= link_to "Mis Ofertas", controller: "biddings", action: "list_active" %></li>
                 
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
