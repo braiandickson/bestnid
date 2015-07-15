@@ -21,12 +21,17 @@ class ProductsController < ApplicationController
   		date_from: Date.today,
   		date_to: Date.today
   		}
-  		date_from = params[:search_dates][:date_from] || Date.today
-  		date_to = params[:search_dates][:date_to] || Date.today
-  		@biddings = Bidding.where(is_winner: true).select {|b| b.updated_at.between?(date_from, date_to)}
-  		@products = @biddings.map { |b| b.product }
-  		#@products = Product.where.join(@biddings)
-  		#params[:search_dates][:date_from]..params[:search_dates][:date_to]
+  	byebug
+		date_from = params[:search_dates][:date_from] || Date.today
+		date_to = params[:search_dates][:date_to] || Date.today
+
+		#date_from = Date.today if date_from = ""
+		#date_to = Date.today if date_to = ""
+
+		@biddings = Bidding.where(is_winner: true).select {|b| b.updated_at.between?(date_from, date_to)}
+		@products = @biddings.map { |b| b.product }
+		#@products = Product.where.join(@biddings)
+		#params[:search_dates][:date_from]..params[:search_dates][:date_to]
 
 	end
 
