@@ -84,12 +84,12 @@ class ProductsController < ApplicationController
 
 	def find_product
 		#begin
-			@product = Product.find(params[:id])
+			@product = Product.find_by(id: params[:id])
 		
-		#rescue =>e
-		#	redirect_to root_path
-		#	flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
-		#end
+		if !@product
+			redirect_to root_path
+			flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
+		end
 	end
 
 end
