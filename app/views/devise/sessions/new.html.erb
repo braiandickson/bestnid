@@ -7,7 +7,7 @@
 			<div class="panel-body">
 				<%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
 				<% if flash[:alert] %>
-					<div class="alert">
+					<div class="alert alert-danger" role="alert">
 						<%= flash[:alert] %>
 					</div>
 					<% end %>

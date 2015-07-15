@@ -8,6 +8,64 @@
   </head>
   <body>
     <nav class="navbar navbar-fixed-top navbar-inverse">
+  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <%=image_tag("logo.gif", style:"float:left;width:32px;height:32px;margin-top:10px;margin-right:10px;margin-left:30px")%>
+      <%= link_to "Bestnid", root_path , class: "navbar-brand", target: "_parent", id: "titulo" %>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-left", role:"search", id: "busqueda") do %>
+              <div class="form-group">
+                  <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su búsqueda..." %>
+                </div>
+                  <%= button_tag type: 'submit', name: nil, class: "btn btn-primary" do %>
+                    <i class="glyphicon glyphicon-search"></i> Buscar
+                  <% end %>
+              <% end %>
+      <ul class="nav navbar-nav navbar-right">
+
+        <% if user_signed_in? %>
+            <% if current_user.email != 'admin@test.com' %>
+
+                <li id="saludo">¡Hola, <%= current_user.name %>!</li>
+                <li><%= link_to "Crear Subasta", new_product_path %></li>
+                <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Mi cuenta<span class="caret"></span></a>
+                  <ul class="dropdown-menu">
+                    <li><%= link_to "Mis Subastas", products_my_auctions_path %></li>
+                    <li><%= link_to "Mis Ofertas", controller: "biddings", action: "list_active" %></li>
+                    <li role="separator" class="divider"></li>
+                    <li><%= link_to "Mis datos", edit_user_registration_path %></li>
+                  </ul>
+                </li>
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+            <% else %>
+                <li><%= link_to "Usuarios Registrados", created_accounts_index_path %></li>
+                <li><%= link_to "Subastas Concluidas", products_concluded_path %></li>
+                <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
+            <% end %>
+          <% else %>
+            <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
+            <li><%= link_to "Regístrate", new_user_registration_path %></li>
+          <% end %>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+      <!-- VERSIÓN VIEJA
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+
+      
       <div class="container-fluid">
           <div class="navbar-header">
             <%=image_tag("logo.gif", style:"float:left;width:32px;height:32px;margin-top:10px;margin-right:10px;margin-left:30px")%>
@@ -15,7 +73,9 @@
           </div>
           <div>
               <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-nav", id: "busqueda") do %>
+              <div class="form-group">
                   <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su búsqueda..." %>
+                </div>
                   <%= button_tag type: 'submit', name: nil, class: "btn btn-primary" do %>
                     <i class="glyphicon glyphicon-search"></i> Buscar
                   <% end %>
@@ -41,18 +101,18 @@
           <% end %>
           </ul>
         </div>
-      </div>
+      </div> -->
     </nav>
     <div class="container">
       <!--
         Notificaciones usando flash
        -->
       <% if flash[:notice] %>
-        <div class="notice">
+        <div class="alert alert-info" role="alert">
           <%= flash[:notice] %>
         </div>
       <%elsif flash[:invalid] %>
-        <div class="invalid">
+        <div class="alert alert-danger" role="alert">
           <%= flash[:invalid] %>
         </div>
       <% end -%>

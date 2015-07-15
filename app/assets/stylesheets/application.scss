@@ -28,9 +28,9 @@ body {
 	word-wrap:break-word;
 }
 
-@media screen and (max-width: 768px)
+@media screen and (min-width: 768px) and (max-width: 1190px)
 {
-	body { padding-top: 395px;}
+	body { padding-top: 125px;}
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -166,8 +166,8 @@ textarea {
 }
 
 .alert {
-	font-size: 16px;
-	color: #FF2222;
+	text-align: center;
+	margin-top: 20px;
 }
 
 .grayed-out {
