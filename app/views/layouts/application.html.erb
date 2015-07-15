@@ -6,26 +6,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
     <%= csrf_meta_tags %>
   </head>
-  <body margin-top: 50px>
-    <header class="navbar navbar-fixed-top navbar-inverse">
-      <div class="container">
-        <nav>
+  <body>
+    <nav class="navbar navbar-fixed-top navbar-inverse">
+      <div class="container-fluid">
           <div class="navbar-header">
-            <%=image_tag("logo.gif", style:"float:left;width:32px;height:32px;margin-top:10px;margin-right:10px")%>
-            <a class="navbar-brand" <%= link_to "Bestnid", root_path , class: "navbar-brand", target: "_parent", id: "titulo" %>
-              <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-right", id: "busqueda") do %>
-                <p>
+            <%=image_tag("logo.gif", style:"float:left;width:32px;height:32px;margin-top:10px;margin-right:10px;margin-left:30px")%>
+            <%= link_to "Bestnid", root_path , class: "navbar-brand", target: "_parent", id: "titulo" %>
+          </div>
+          <div>
+              <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-nav", id: "busqueda") do %>
                   <%= text_field_tag :search, params[:search], class: "form-control", placeholder: "Ingrese su búsqueda..." %>
                   <%= submit_tag "Buscar", name: nil, class: "btn btn-primary" do %>
                     <i class="glyphicon glyphicon-search"></i>
                   <% end %>
-                </p>
               <% end %>
-            </a>
-          </div>
+          <ul class="nav navbar-nav navbar-right">
           <% if user_signed_in? %>
             <% if current_user.email != 'admin@test.com' %>
-              <ul class="nav navbar-nav navbar-right">
                 <li id="saludo">¡Hola, <%= current_user.name %>!</li>
                 <li><%= link_to "Crear Subasta", new_product_path %></li>
                 <li><%= link_to "Mi Cuenta", edit_user_registration_path %></li>
@@ -33,23 +30,19 @@
                 <li><%= link_to "Mis Ofertas", controller: "biddings", action: "list_active" %></li>
                 
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
-              </ul>
             <% else %>
-              <ul class="nav navbar-nav navbar-right">
                 <li><%= link_to "Usuarios Registrados", created_accounts_index_path %></li>
                 <li><%= link_to "Subastas Concluidas", products_concluded_path %></li>
                 <li><%= link_to "Cerrar Sesión", destroy_user_session_path, method: :delete %></li>
-              </ul>
             <% end %>
           <% else %>
-            <ul class="nav navbar-nav navbar-right">
             <li><%= link_to "Iniciar Sesión", new_user_session_path %></li>
             <li><%= link_to "Regístrate", new_user_registration_path %></li>
-            </ul>
           <% end %>
-        </nav>
+          </ul>
+        </div>
       </div>
-    </header>
+    </nav>
     <div class="container">
       <!--
         Notificaciones usando flash
