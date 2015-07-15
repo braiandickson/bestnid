@@ -11,6 +11,7 @@
       <div class="container">
         <nav>
           <div class="navbar-header">
+            <%=image_tag("logo.gif", style:"float:left;width:32px;height:32px;margin-top:10px;margin-right:10px")%>
             <a class="navbar-brand" <%= link_to "Bestnid", root_path , class: "navbar-brand", target: "_parent", id: "titulo" %>
               <%= form_tag(products_path, :method => "get", class: "navbar-form navbar-right", id: "busqueda") do %>
                 <p>
