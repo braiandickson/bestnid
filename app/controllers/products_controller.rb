@@ -21,7 +21,7 @@ class ProductsController < ApplicationController
   		date_from: Date.today,
   		date_to: Date.today
   		}
-  	byebug
+  		
 		date_from = params[:search_dates][:date_from] || Date.today
 		date_to = params[:search_dates][:date_to] || Date.today
 
