@@ -83,7 +83,6 @@ class ProductsController < ApplicationController
 	end
 
 	def find_product
-		#begin
 			@product = Product.find_by(id: params[:id])
 		
 		if !@product
