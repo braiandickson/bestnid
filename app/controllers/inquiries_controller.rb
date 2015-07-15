@@ -13,7 +13,7 @@ class InquiriesController < ApplicationController
 			flash[:notice] = "Pregunta enviada con éxito!"
 			redirect_to product_path(@product)
 		else
-			flash[:invalid] = "El campo de pregunta no puede ser vacío."
+			flash[:invalid] = "La pregunta no puede ser vacía y debe tener 250 caracteres como máximo."
 			redirect_to product_path(@product)
 		end
 
@@ -27,7 +27,7 @@ class InquiriesController < ApplicationController
 			flash[:notice] = "Pregunta respondida con éxito!"
       		redirect_to product_path(@product)
     	else
-    		flash[:invalid] = "El campo de respuesta no puede ser vacío."
+    		flash[:invalid] = "La respuesta no puede ser vacía y debe tener 250 caracteres como máximo."
       		redirect_to product_path(@product)
       	end
 
