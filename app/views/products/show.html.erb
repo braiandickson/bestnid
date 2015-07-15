@@ -36,7 +36,7 @@
         <% end %>
         </h2>
 
-        <h3>Esta subasta finaliza el día: <%= @product.due_date.strftime("%d %b %Y") %></h3>
+        <h3>Esta subasta finaliza el día: <%= l(@product.due_date,format: "%d %b %Y") %></h3>
         <br>
         <p class="description">
           <%= @product.description %>

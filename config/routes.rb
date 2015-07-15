@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 	patch '/biddings/:id', to: "biddings#update"
 
 	get '/products/concluded', to: "products#concluded"
+	get '/products/my_auctions', to: "products#my_auctions"
 
 	resources :products do
 		resources :biddings

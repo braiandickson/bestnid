@@ -35,6 +35,10 @@ class ProductsController < ApplicationController
 
 	end
 
+	def my_auctions
+		@products = current_user.products
+	end
+
 	def new
 		@product = current_user.products.build
 	end

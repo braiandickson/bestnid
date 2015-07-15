@@ -22,7 +22,7 @@
 	      </h2>
 	      <hr>
 	      <p>Subastado por <%= product.user ? product.user.name : "un usuario dado de baja" %></p>
-	      <p>Fecha de finalización: <%= product.due_date.strftime("%d %b %Y") %></p>
+	      <p>Fecha de finalización: <%= l(product.due_date, format: "%d %b %Y") %></p>
 	    </div>
 	  <% end %>
 	  
