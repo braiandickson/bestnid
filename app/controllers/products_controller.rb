@@ -16,20 +16,28 @@ class ProductsController < ApplicationController
 	end
 
 	def concluded
+  	
+  	if params[:search_dates]
 
-		params[:search_dates] ||= {
-  		date_from: Date.today,
-  		date_to: Date.today
-  		}
-  		
-		date_from = params[:search_dates][:date_from] || Date.today
-		date_to = params[:search_dates][:date_to] || Date.today
+			date_from = params[:search_dates][:date_from]
+			date_to = params[:search_dates][:date_to]
 
-		@biddings = Bidding.where(is_winner: true).select {|b| b.updated_at.between?(date_from, date_to)}
-		@products = @biddings.map { |b| b.product }
-		#@products = Product.where.join(@biddings)
-		#params[:search_dates][:date_from]..params[:search_dates][:date_to]
+			if date_from <= date_to
+				@biddings = Bidding.where(is_winner: true).select do |b| 
+											b.updated_at.between?(date_from, date_to)
+										end
+				@products = @biddings.map { |b| b.product }
+			else
+				@products = []
+				flash[:invalid] = "Por favor, ingrese un rango de fechas válido."
+			end
 
+		else
+			@products = []
+			flash[:notice] = "Bienvenido al reporte de subastas concluidas"
+		end
+
+		render 'concluded'
 	end
 
 	def my_auctions

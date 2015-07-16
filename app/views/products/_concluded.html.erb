@@ -1,12 +1,15 @@
-<h1>Total de elementos encontrados: <%= @biddings.size %></h1>
-<% @biddings.each do | bidding | %>
+<h3>Total de elementos encontrados: <%= @products.size %></h1>
+<% @products.each do | product | %>
 	
-	<%= link_to (image_tag bidding.product.image.url), bidding.product %>
+	<%= link_to (image_tag product.image.url), product %>
 	<p>
-		<%= link_to bidding.product.name, bidding.product %>
+		<%= link_to product.name, product %>
 	</p>
 	<p>
-		Comisión obtenida: $<%= bidding.amount * 0.3 %>
+		Comisión obtenida: $<%= product.biddings.find {|b| b.is_winner?}.amount * 0.3 %>
+	</p>
+	<p>
+		Concluida el <%= product.biddings.find {|b| b.is_winner?}.updated_at.to_date %>
 	</p>
 	<br>
 <% end %>

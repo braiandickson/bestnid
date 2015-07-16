@@ -6,9 +6,9 @@
 <div class="body">
 	<div class="search">
 		<%= form_tag(created_accounts_index_path, method: :get) do %>
-			<%= label_tag(:from_date, "Desde") %>
+			<%= label_tag(:date_from, "Desde") %>
 			<%= date_field(:search_dates, :date_from, value: params[:date_from], required: true) %>
-			<%= label_tag(:to_date, "Hasta", value: @to_date) %>
+			<%= label_tag(:date_to, "Hasta") %>
 			<%= date_field(:search_dates, :date_to, value: params[:date_to], required: true) %>
 			<%= submit_tag "Obtener Reporte"%>
 		<% end %>
@@ -16,6 +16,10 @@
 
 <hr>
 	
+	<div class="header">
+		<h3>Total de elementos encontrados: <%= @created_accounts.size %></h3>
+	</div>
+
 	<div class="list">
 	<% @created_accounts.each do | account | %>
 		<p>
@@ -31,5 +35,5 @@
 <hr>
 
 <div class="footer">
-	Total: <%= @created_accounts.size %>
+	
 </div>
