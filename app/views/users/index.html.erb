@@ -1,14 +1,12 @@
-<h2> Usuarios Registrados: </h2>
+<h2> Usuarios Registrados (en desuso): </h2>
 
 <%= form_tag("/users", method: "get") do %>
-	<%= label_tag(:q_c1, "Elija una fecha:") %>
-	<%= date_field(:q, :c1) %>
-	<%= label_tag(:q_c2, "Elija otra fecha:") %>
-	<%= date_field(:q, :c2) %>
-	<%= submit_tag "Buscar"%>
+	<%= label_tag(:date_from, "Desde") %>
+	<%= date_field(:search_dates, :date_from, value: params[:date_from], required: true) %>
+	<%= label_tag(:date_to, "Hasta") %>
+	<%= date_field(:search_dates, :date_to, value: params[:date_to], required: true) %>
+	<% byebug %>
+	<%= submit_tag "Obtener Reporte"%>
 	<%=  %>
 <% end %>
 
-
-
-	<%= render 'user' %>

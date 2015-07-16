@@ -1,10 +1,10 @@
 <h1> Subastas concluidas </h1>
 
 <%= form_tag("/products/concluded", method: "get") do %>
-	<%= label_tag(:date_from, "Desde:") %>
-	<%= date_field(:search_dates, :date_from) %>
-	<%= label_tag(:date_to, "Hasta:") %>
-	<%= date_field(:search_dates, :date_to) %>
+	<%= label_tag(:date_from, "Desde") %>
+	<%= date_field(:search_dates, :date_from, value: params[:date_from]) %>
+	<%= label_tag(:date_to, "Hasta") %>
+	<%= date_field(:search_dates, :date_to, value: params[:date_to]) %>
 	<%= submit_tag "Obtener Reporte"%>
 	<%=  %>
 <% end %>

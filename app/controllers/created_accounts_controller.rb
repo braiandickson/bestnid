@@ -3,12 +3,20 @@ class CreatedAccountsController < ApplicationController
   def index
 
   	params[:search_dates] ||= {
-  		from_date: Date.today,
-  		to_date: Date.today
-  	}
-  	from_date = params[:search_dates][:from_date] || Date.today
-  	to_date = params[:search_dates][:to_date] || Date.today
-  	@created_accounts = CreatedAccount.where(registration_date: (from_date..to_date))
+  		date_from: Date.today,
+  		date_to: Date.today
+  		}
+
+  	date_from = params[:search_dates][:date_from] #|| Date.today
+  	date_to = params[:search_dates][:date_to] #|| Date.today
+
+  	if date_from <= date_to
+  		@created_accounts = CreatedAccount.where(registration_date: (date_from..date_to))
+  	else
+  		@created_accounts = []
+			flash[:invalid] = "Por favor, ingrese un rango de fechas válido."
+  	end
+
   end
 
 end

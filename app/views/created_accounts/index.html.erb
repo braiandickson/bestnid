@@ -7,15 +7,15 @@
 	<div class="search">
 		<%= form_tag(created_accounts_index_path, method: :get) do %>
 			<%= label_tag(:from_date, "Desde") %>
-			<%= date_field(:search_dates, :from_date, value: @from_date) %>
+			<%= date_field(:search_dates, :date_from, value: params[:date_from], required: true) %>
 			<%= label_tag(:to_date, "Hasta", value: @to_date) %>
-			<%= date_field(:search_dates, :to_date) %>
+			<%= date_field(:search_dates, :date_to, value: params[:date_to], required: true) %>
 			<%= submit_tag "Obtener Reporte"%>
 		<% end %>
 	</div>
 
 <hr>
-
+	
 	<div class="list">
 	<% @created_accounts.each do | account | %>
 		<p>
