@@ -27,6 +27,7 @@ class ProductsController < ApplicationController
 											b.updated_at.between?(date_from, date_to)
 										end
 				@products = @biddings.map { |b| b.product }
+				flash.now[:notice] = "Se ha generado el reporte."
 			else
 				@products = []
 				flash[:invalid] = "Por favor, ingrese un rango de fechas válido."
