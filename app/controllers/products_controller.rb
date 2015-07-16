@@ -25,8 +25,6 @@ class ProductsController < ApplicationController
 		date_from = params[:search_dates][:date_from] || Date.today
 		date_to = params[:search_dates][:date_to] || Date.today
 
-		byebug
-		
 		@biddings = Bidding.where(is_winner: true).select {|b| b.updated_at.between?(date_from, date_to)}
 		@products = @biddings.map { |b| b.product }
 		#@products = Product.where.join(@biddings)
