@@ -46,7 +46,7 @@ class ProductsController < ApplicationController
 	end
 
 	def my_auctions
-		@products = current_user.products
+		@products = current_user.products.order("state DESC")
 	end
 
 	def new
