@@ -1,9 +1,12 @@
-<br><br><br>
+<div class="transitions-enabled" id="products">
+
 <div id="biddings">
 
 <% if @biddings_to_list.any? %>
 	<% @biddings_to_list.each do |bidding| %>
 		
+	<div class="box panel panel-default">
+
 		<div class="bidding">
 			<%= bidding.product.name %><br>
 			Subastado por <%= bidding.product.user ? bidding.product.user.name : "Usuario cancelado" %><br>
@@ -26,8 +29,12 @@
 		</div>
 		</div>
 
+	</div>
+
 	<% end %>
 	<% else %>
 		<h2><%= "Usted no tiene ofertas" %></h2>
 	<% end %>
+</div>
+
 </div>
