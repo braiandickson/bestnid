@@ -1,5 +1,19 @@
 
-<h3>Total de subastas encontradas: <%= @products.size %></h1>
+<h3>Total de subastas encontradas: <%= @products.size %></h3>
+
+<% income = if @products.any?
+							@products.map do |p| 
+								p.biddings 
+							end.flatten.select do |b| 
+								b.is_winner? end.inject(0) do |sum, b| 
+									sum + (b.amount * 0.3) 
+								end
+						else
+							0
+						end
+%>
+
+	<h3>Total ganado en comisiones: $ <%= income %></h3>
 <div class="transitions-enabled" id="products">
 
 <% @products.each do | product | %>
