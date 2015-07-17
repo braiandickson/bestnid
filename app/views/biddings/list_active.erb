@@ -17,14 +17,14 @@
 			<%= link_to ( image_tag bidding.product.image.url ), bidding.product %>
 		<p>Tu motivo: <%= bidding.reason %></p>
 		<% if bidding.product.has_winner? %>
-			<p style= "color: red;">El subastador ya ha elegido ganador.</h3>
+			<div style= "color: red;">El subastador ya ha elegido ganador.</div>
 		<% else %>			
-		  	<h3>Editar monto de la oferta</h3>
 			  <%= simple_form_for ([@product, bidding])  do |f| %>
 			    <div class="form-group">
-			      <%= f.input :amount, label: 'Nuevo monto:', placeholder: "Ingrese un monto para el producto.", required: true, input_html: { class: 'form-control' } %>
-			    </div>
+			      <%= f.input :amount, label: "Su oferta", required: true, input_html: { class: 'form-control'} %>
+			    
 			    <%= f.button :submit, 'Guardar', { class: "btn btn-primary" }%>
+			  	</div>
 			  <% end %>
 		<% end %>
 
