@@ -10,7 +10,7 @@
 			Monto ofrecido por tí: $<%= bidding.amount %><br>
 
 			<%= link_to ( image_tag bidding.product.image.url ), bidding.product %>
-
+		<p><%= bidding.reason %></p>
 		<% if bidding.product.has_winner? %>
 			<p style= "color: red;">El subastador ya ha elegido ganador.</h3>
 		<% else %>			
