@@ -10,9 +10,8 @@
 	<div class="box panel panel-default">
 
 		<div class="bidding">
-			<%= bidding.product.name %><br>
-			Subastado por <%= bidding.product.user ? bidding.product.user.name : "Usuario cancelado" %><br>
-			Monto ofrecido por tí: $<%= bidding.amount %><br>
+			<p><h3><%= bidding.product.name %></h3></p>
+			<p>Subastado por <%= bidding.product.user ? bidding.product.user.name : "Usuario cancelado" %></p>
 
 			<%= link_to ( image_tag bidding.product.image.url ), bidding.product %>
 		<p>Tu motivo: <%= bidding.reason %></p>
@@ -21,9 +20,10 @@
 		<% else %>			
 			  <%= simple_form_for ([@product, bidding])  do |f| %>
 			    <div class="form-group">
-			      <%= f.input :amount, label: "Su oferta", required: true, input_html: { class: 'form-control'} %>
+			    	<p>Monto ofrecido por tí: $<%= bidding.amount %></p>
+			      <%= f.input :amount, label: false, required: true, input_html: { class: 'form-control'} %>
 			    
-			    <%= f.button :submit, 'Guardar', { class: "btn btn-primary" }%>
+			    <%= f.button :submit, 'Cambiar', { class: "btn btn-primary" }%>
 			  	</div>
 			  <% end %>
 		<% end %>
