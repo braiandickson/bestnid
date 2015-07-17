@@ -1,6 +1,9 @@
-<h3>Total de elementos encontrados: <%= @products.size %></h1>
+
+<h3>Total de subastas encontradas: <%= @products.size %></h1>
+<div class="transitions-enabled" id="products">
+
 <% @products.each do | product | %>
-	
+<div class="box panel panel-default">
 	<%= link_to (image_tag product.image.url), product %>
 	<p>
 		<%= link_to product.name, product %>
@@ -13,3 +16,7 @@
 	</p>
 	<br>
 <% end %>
+
+</div>
+
+</div>
