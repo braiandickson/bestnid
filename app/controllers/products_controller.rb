@@ -23,8 +23,7 @@ class ProductsController < ApplicationController
 			date_to = params[:search_dates][:date_to]
 
 			if date_from <= date_to
-				byebug
-				
+				date_to += ' 23:59:59.999999'				
 				@winners = Bidding.where(is_winner: true)
 				@biddings = @winners.where(
 					"created_at >= :date_from AND created_at <= :date_to",
