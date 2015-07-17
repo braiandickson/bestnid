@@ -19,18 +19,25 @@
 	<div class="header">
 		<h3>Total de usuarios encontrados: <%= @created_accounts.size %></h3>
 	</div>
-
+	<br>
 	<div class="list">
-	<% @created_accounts.each do | account | %>
-		<p>
-		<%= account.name %>
-		<%= account.email %>
-		<%= account.registration_date %>
-		<br>
-		</p>
-	<% end %>
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>Nombre:</th>
+					<th>Email:</th>
+					<th>Fecha de registro:</th>
+				</tr>
+			</thead>
+			<% @created_accounts.each do | account | %>
+				<tr>
+					<td><%= account.name %></td>
+					<td><%= account.email %></td>
+					<td><%= account.registration_date.strftime('%d - %m - %Y') %></td>
+				</tr>
+			<% end %>
+		</table>
 	</div>
-
 </div>
 <hr>
 
