@@ -1,4 +1,7 @@
 class Bidding < ActiveRecord::Base
+
+	include BiddingsHelper
+	
   belongs_to :product
   belongs_to :user
 
