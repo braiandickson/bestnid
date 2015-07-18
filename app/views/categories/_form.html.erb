@@ -1,0 +1,12 @@
+<%= simple_form_for @category, html: {multipart: true} do |f| %>
+  <div class="form-group">
+    <%= f.input :name, label: 'Nombre de la categoría:', required: true, placeholder: "Escriba un nombre para la categoría.", input_html: { class: 'form-control'} %>
+  </div>
+  <div class="form-group">
+    <%= f.input :hidden, label: 'Ocultar?', as: :boolean %>
+  </div>
+  <div data-no-turbolink>
+    <%= f.button :submit, 'Crear Categoría', {class: "btn btn-primary"} %>
+    <%= link_to "Cancelar", categories_path, class: "btn btn-primary" %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<div class="col-md-8 col-md-offset-2">
+  <div class="row">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Categorías</h1>
+      </div>
+      <div class="panel-body">
+		<ul>
+			<% @categories.each do |category| %>
+			<li><%= category.name %>
+			<% if category.hidden? %>
+					(Oculta) 
+				<% else %>
+					(Visible)
+				<% end %>
+				<%= link_to "Editar", controller: "categories", action: "edit", id: category %>
+			</li>
+			<% end %>
+		</ul>
+	  <div class="category_edit_link">
+		<%= link_to "Agregar nueva categoría", controller: "categories", action: "new" %>      
+      </div>
+    </div>
+  </div>
+</div>
