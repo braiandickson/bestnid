@@ -2,12 +2,14 @@ class Product < ActiveRecord::Base
 	#after_initialize :init
 	before_save :set_due_date
 	belongs_to :user
+	belongs_to :category
 	has_many :biddings
 	has_many :inquiries
  
 	validates :name, presence: true, uniqueness: true, length: {:maximum => 25}
 	validates :description, presence: true, length: {:maximum => 750}
 	validates_presence_of :image, :message => :required
+	validates :category_id, presence: true
 	
 	include ProductsHelper
 

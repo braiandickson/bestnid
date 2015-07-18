@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'passwords/change'
+
   	get 'created_accounts/index'
 
 	put '/biddings/:id', to: 'biddings#set_as_winning', as: "bidding"
@@ -18,4 +20,6 @@ Rails.application.routes.draw do
 	
 	devise_for :users, :controllers => { registrations: 'registrations' }
 	resources :users, :only => [:index]
+	resources :categories, :except => [:show, :destroy]
+
 end

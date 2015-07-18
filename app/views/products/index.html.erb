@@ -22,6 +22,7 @@
 	      </h2>
 	      <hr>
 	      <p>Subastado por <%= product.user ? product.user.name : "un usuario dado de baja" %></p>
+	      <p class="categoria">En <%= Category.find_by(id: product.category_id).name %></p>
 	      <p>Fecha de finalización: <%= l(product.due_date, format: "%d %b %Y") %></p>
 	    </div>
 	  <% end %>
