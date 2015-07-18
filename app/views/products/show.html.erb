@@ -46,7 +46,9 @@
           Subastado por
           <%= @product.user ? @product.user.name : "Usuario cancelado" %>
         </p>
-      </div>
+        <p class="categoria">En
+          <%= Category.find_by(id: @product.category_id).name %>
+        </p>
       <% if current_user && current_user.email != 'admin@test.com' %>
         <% if current_user != @product.user && @product.state == 'active' %>
           <% unless @product.biddings.find_by(:user => current_user) %>

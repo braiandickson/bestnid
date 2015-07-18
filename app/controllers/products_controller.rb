@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 
 	before_action :find_product, only: [:show, :edit, :update, :destroy]
 	before_action :authenticate_user!, except: [:index, :show]
+	before_action :get_categories, only: [:new, :create]
 
 
 	def index
@@ -85,7 +86,7 @@ class ProductsController < ApplicationController
 	private
 
 	def product_params
-		params.require(:product).permit(:name, :description, :state, :period, :image)
+		params.require(:product).permit(:name, :description, :state, :period, :image, :category_id)
 	end
 
 	def find_product
@@ -96,5 +97,15 @@ class ProductsController < ApplicationController
 			flash[:notice] =  "Lo sentimos. No se pudo procesar su solicitud."
 		end
 	end
+
+	def get_categories
+		@categories = Category.where("hidden = ?", false).order("name")
+
+		if !@categories
+			redirect_to root_path
+			flash[:notice] = "Lo sentimos. No se pudo procesar su solicitud."
+		end
+	end
+
 
 end

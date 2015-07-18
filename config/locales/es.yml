@@ -254,3 +254,10 @@ es:
               taken: "Ya existe un producto con este nombre. Por favor ingrese uno distinto."
             description:
               too_long: "La descripción debe tener una longitud máxima de 750 caracteres."
+        category:
+          attributes:
+            name:
+              too_long: "El nombre de categoría debe tener una longitud máxima de 20 caracteres."
+              taken: "Ya existe una categoría con este nombre."
+            hidden:
+              invalid: "El atributo de oculto tiene que ser verdadero o falso."
