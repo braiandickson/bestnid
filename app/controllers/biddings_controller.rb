@@ -14,6 +14,7 @@ class BiddingsController < ApplicationController
 		
 		if @bidding.save
 			redirect_to product_path(@product)
+			flash[:notice] = "Se ha ofertado con éxito!"
 		else
 			flash[:invalid] = "Debe ingresar un motivo y monto válidos."
 			redirect_to product_path(@product)
