@@ -16,7 +16,11 @@
 			<%= link_to ( image_tag bidding.product.image.url ), bidding.product %>
 		<p>Tu motivo: <%= bidding.reason %></p>
 		<% if bidding.product.has_winner? %>
-			<div style= "color: red;">El subastador ya ha elegido ganador.</div>
+			<% if bidding.product.winner == current_user %>
+				<div style= "color: blue; font-weight:bold; font-size: 20px;">Ganaste la subasta!</div>
+			<% else %>
+				<div style= "color: red;">El subastador ya ha elegido ganador.</div>
+			<% end %>
 		<% else %>			
 			  <%= simple_form_for ([@product, bidding])  do |f| %>
 			    <div class="form-group">
