@@ -1,5 +1,7 @@
 module ProductsHelper
 
+	include BestnidHelper
+
 	def due_date_for(validity_period)
 		validity_period.days.from_now
 	end

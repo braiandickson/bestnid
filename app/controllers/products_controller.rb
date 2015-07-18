@@ -24,9 +24,13 @@ class ProductsController < ApplicationController
 			date_to = params[:search_dates][:date_to]
 
 			if date_from <= date_to
-				@biddings = Bidding.where(is_winner: true).select do |b| 
-											b.updated_at.between?(date_from, date_to)
-										end
+				date_to += ' 23:59:59.999999'				
+				@winners = Bidding.where(is_winner: true)
+				@biddings = @winners.where(
+					"created_at >= :date_from AND created_at <= :date_to",
+  				{date_from: date_from, date_to: date_to}
+  				)
+
 				@products = @biddings.map { |b| b.product }
 				flash.now[:notice] = "Se ha generado el reporte."
 			else

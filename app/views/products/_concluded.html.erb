@@ -1,15 +1,36 @@
-<h3>Total de elementos encontrados: <%= @products.size %></h1>
+
+<h3>Total de subastas encontradas: <%= @products.size %></h3>
+
+<% income = if @products.any?
+							@products.map do |p| 
+								p.biddings 
+							end.flatten.select do |b| 
+								b.is_winner? end.inject(0) do |sum, b| 
+									sum + (b.amount * 0.3) 
+								end
+						else
+							0
+						end
+%>
+
+	<h3>Total ganado en comisiones: $ <%= print_money income %></h3>
+<div class="transitions-enabled" id="products">
+
 <% @products.each do | product | %>
-	
+<div class="box panel panel-default">
 	<%= link_to (image_tag product.image.url), product %>
 	<p>
 		<%= link_to product.name, product %>
 	</p>
 	<p>
-		Comisión obtenida: $<%= product.biddings.find {|b| b.is_winner?}.amount * 0.3 %>
+		Comisión obtenida: $<%= print_money product.biddings.where(is_winner:true).first.amount * 0.3 %>
 	</p>
 	<p>
-		Concluida el <%= product.biddings.find {|b| b.is_winner?}.updated_at.to_date %>
+		Concluida el <%= product.biddings.where(is_winner: true).first.updated_at.to_date %>
 	</p>
 	<br>
 <% end %>
+
+</div>
+
+</div>

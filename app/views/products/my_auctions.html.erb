@@ -1,19 +1,21 @@
-<h1>Mis Subastas</h1>
-<br>
+<div class="title" align="center"><h2>Mis Subastas</h2></div>
+
+	<div class="transitions-enabled" id="products">
+
 <% if @products.any? %>
-	<% @products.each do | p | %>
-		<div style="">
-			<%= link_to (image_tag p.image.url, { :height => 150, :crop => :fill }), p  %>
+	<% @products.each do |p| %>
+	<div class="box panel panel-default">
+			<%= link_to (image_tag p.image.url, { :height => 150, :crop => :fill }), p  %>	
 			<p><%= link_to p.name, p %></p>
 			<% if p.state == "active" %>
 				<p>Subasta activa</p>
 			<% else %>
 				<p>Subasta finalizada</p>
-				<br>
 			<% end %>
-			<br>
-		</div>
+	</div>
 	<% end %>
 <% else %>
 	<h2>Usted no tiene subastas creadas.</h2>
 <% end %>
+
+</div>
